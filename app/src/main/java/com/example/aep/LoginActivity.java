@@ -1,0 +1,91 @@
+package com.example.aep;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class LoginActivity extends AppCompatActivity {
+
+    private Button loginButton;
+    private EditText emailText;
+
+    private EditText passwordText;
+
+    private  String enteredPassword;
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        // Find views by their IDs
+        loginButton = findViewById(R.id.login_button);
+
+        emailText = findViewById(R.id.email_edittext);
+
+        // Initialize SharedPreferences
+        SharedPreferences sharedPreference = getSharedPreferences("Email", Context.MODE_PRIVATE);
+
+        String defaultEmail = "email@domain.com";
+        // Reading the stored email address from SharedPreferences
+        String storedEmail = sharedPreference.getString("email", defaultEmail);
+
+        // Setting the initial text of the email field for the first time default email, then the last entered email
+        emailText.setText(storedEmail);
+    }
+
+    public void login(View view)
+    {
+
+
+        //To get Email
+        emailText = findViewById(R.id.email_edittext);
+        // To Store the entered email in SharedPreferences
+        String enteredEmail = emailText.getText().toString();
+
+        //to get password
+        passwordText = findViewById(R.id.password_edittext);
+        //Get the password and store it in the enteredPassword variable
+        enteredPassword = passwordText.getText().toString();
+
+        // Check if the email is properly formatted
+        if (!isValidEmail(enteredEmail)|| enteredEmail.isEmpty()) {
+            emailText.setError(getResources().getString(R.string.Invalidemail));
+
+            return; // Not proceeding with login since email is invalid
+        }
+        else if (enteredPassword.isEmpty()) {
+            passwordText.setError(getResources().getString(R.string.passwordempty));
+
+            return; // Not proceeding with login since password is empty
+        } else {
+            SharedPreferences sharedPreferences_erram = getSharedPreferences("Email", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences_erram.edit();
+            editor.putString("email", enteredEmail);
+            editor.apply();
+            //Main activity Calling
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+
+    }
+
+    public void register(View view)
+    {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    // Function to check if an email is properly formatted using a regex pattern
+    private boolean isValidEmail(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}";
+        return email.matches(emailPattern);
+    }
+}
