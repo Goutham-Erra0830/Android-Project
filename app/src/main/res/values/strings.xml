@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AEP</string>
+    <string name="login">login</string>
+    <string name="loginname">login name</string>
+    <string name="password">password</string>
+    <string name="register">Register</string>
+    <string name="passwordempty">Password cannot be empty.</string>
+    <string name="Invalidemail">Invalid email address.</string>
+    <string name="userid">UserId</string>
+    <string name="enter_employeeid">Enter EmployeeId</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="email">Email</string>
+    <string name="full_name">full name</string>
+    <string name="first_name">Full Name</string>
+    <string name="profile_type">User Type</string>
+
+
+</resources>
