@@ -101,6 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void unused) {
                                 Log.d("RegistrationStatus", "User data stored in Firestore");
+                                Toast.makeText(RegisterActivity.this,"Registration successful", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                 finish();
                             }
@@ -109,6 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.d("RegistrationStatus","Failed to push data to db");
+                                Toast.makeText(RegisterActivity.this,"Registration Failed ", Toast.LENGTH_LONG).show();
                             }
                         });
             }
