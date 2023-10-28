@@ -1,18 +1,49 @@
 package com.example.aep;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
+    private EditText fullNameEditText;
+    private EditText emailEditText;
+    private EditText passwordEditText;
+    private Spinner userTypeSpinner;
+    private Button registerButton;
+    private FirebaseFirestore db;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         Spinner spinner = findViewById(R.id.spinner);
+
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
 // Sample data - you can replace this with your own list of items
         String[] items = {"Coach", "Player"};
@@ -26,5 +57,81 @@ public class RegisterActivity extends AppCompatActivity {
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
+        fullNameEditText = findViewById(R.id.FullnameET);
+        emailEditText = findViewById(R.id.emailET);
+        passwordEditText = findViewById(R.id.passwordET);
+        userTypeSpinner = findViewById(R.id.spinner);
+        registerButton = findViewById(R.id.RegisterButton);
+
+    }
+
+    public void clickedOnRegister(View view){
+        Log.d("RegisterActivity","Hi bro");
+        String fullName = fullNameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        String userType = userTypeSpinner.getSelectedItem().toString();
+
+        // Check if the fields are not empty
+        if (fullName.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!isEmailValid(email)) {
+            Toast.makeText(this, "Please enter email in proper format i.e. xyz@gmail.com ", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                Log.d("AuthenticationStatus", "User is authenticated. UID: " + authResult.getUser().getUid());
+                FirebaseUser newUser = authResult.getUser();
+                Map<String, Object> userData = new HashMap<>();
+                userData.put("full_name", fullName);
+                userData.put("email", email);
+                userData.put("password",password);
+                userData.put("user_type", userType);
+
+                db.collection("users")
+                        .document(newUser.getUid())
+                        .set(userData)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Log.d("RegistrationStatus", "User data stored in Firestore");
+                                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                                finish();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.d("RegistrationStatus","Failed to push data to db");
+                            }
+                        });
+            }
+
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // User authentication failed
+                Log.d("RegistrationStatus", "User registration  failed: " + e.getMessage());
+
+                // Handle the authentication failure (e.g., show an error message to the user).
+                Toast.makeText(RegisterActivity.this, "Registration  failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+    private boolean isEmailValid(String email) {
+        // Define a regular expression pattern for a valid email format
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        // Use regex to check if the email matches the pattern
+        return email.matches(emailPattern);
     }
 }
