@@ -1,5 +1,6 @@
 package com.example.aep;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,8 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -72,94 +77,61 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (!isEmailValid(email)) {
+            Toast.makeText(this, "Please enter email in proper format i.e. xyz@gmail.com ", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        /*Map<String, Object> userData = new HashMap<>();
-        userData.put("full_name", fullName);
-        userData.put("email", email);
-        userData.put("user_type", userType);
 
-        db.collection("users")
-                .add(userData)
-                .addOnSuccessListener(documentReference -> {
-                    // Data added to Firestore successfully
-                    Log.d("RegisterActivity","succeeded to push data to db");
-                })
-                .addOnFailureListener(e -> {
-                    // Handle Firestore data storage error
-                    Log.d("RegisterActivity","Failed to push data to db");
-                });
+        mAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                Log.d("AuthenticationStatus", "User is authenticated. UID: " + authResult.getUser().getUid());
+                FirebaseUser newUser = authResult.getUser();
+                Map<String, Object> userData = new HashMap<>();
+                userData.put("full_name", fullName);
+                userData.put("email", email);
+                userData.put("password",password);
+                userData.put("user_type", userType);
 
-        db.collection("users")
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        // Access the data from each document
-                        String fullNamee = document.getString("full_name");
-                        String emaill = document.getString("email");
-                        String userTypee = document.getString("user_type");
+                db.collection("users")
+                        .document(newUser.getUid())
+                        .set(userData)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Log.d("RegistrationStatus", "User data stored in Firestore");
+                                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                                finish();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.d("RegistrationStatus","Failed to push data to db");
+                            }
+                        });
+            }
 
-                        // Print or display the data
-                        Log.d("FirestoreData", "Full Name: " + fullNamee);
-                        Log.d("FirestoreData", "Email: " + emaill);
-                        Log.d("FirestoreData", "User Type: " + userTypee);
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    // Handle any errors that occur during data retrieval
-                    Log.w("FirestoreData", "Error getting documents.", e);
-                });*/
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        // Registration successful
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        // Update user's display name with full name
-                        user.updateProfile(new UserProfileChangeRequest.Builder()
-                                        .setDisplayName(fullName)
-                                        .build())
-                                .addOnCompleteListener(updateTask -> {
-                                    if (updateTask.isSuccessful()) {
-                                        // Display name updated successfully
-                                        Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // User authentication failed
+                Log.d("RegistrationStatus", "User registration  failed: " + e.getMessage());
 
-                                        // Store user data in Firestore
-                                        Map<String, Object> userData = new HashMap<>();
-                                        userData.put("full_name", fullName);
-                                        userData.put("email", email);
-                                        userData.put("user_type", userType);
+                // Handle the authentication failure (e.g., show an error message to the user).
+                Toast.makeText(RegisterActivity.this, "Registration  failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-                                        db.collection("users")
-                                                .add(userData)
-                                                .addOnSuccessListener(documentReference -> {
-                                                    // Data added to Firestore successfully
-                                                    Toast.makeText(this, "User data stored in Firestore", Toast.LENGTH_SHORT).show();
-                                                    Log.d("RegisterActivity","succeeded");
-                                                })
-                                                .addOnFailureListener(e -> {
-                                                    // Handle Firestore data storage error
-                                                    Toast.makeText(this, "Failed to store user data in Firestore", Toast.LENGTH_SHORT).show();
-                                                    Log.d("RegisterActivity","failed");
-                                                });
 
-                                        // Store the email for later use
-                                        SharedPreferences sharedPreferences = getSharedPreferences("Email", MODE_PRIVATE);
-                                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                                        editor.putString("email", email);
-                                        editor.apply();
+    }
 
-                                        // Navigate to the main activity
-                                        Intent intent = new Intent(this, LoginActivity.class);
-                                        startActivity(intent);
-                                    } else {
-                                        // Handle display name update failure
-                                        Toast.makeText(this, "Display name update failed", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                    } else {
-                        // Registration failed
-                        Toast.makeText(this, "Registration failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+    private boolean isEmailValid(String email) {
+        // Define a regular expression pattern for a valid email format
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+        // Use regex to check if the email matches the pattern
+        return email.matches(emailPattern);
     }
 }
