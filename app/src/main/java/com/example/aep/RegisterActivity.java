@@ -110,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.d("RegistrationStatus","Failed to push data to db");
-                                Toast.makeText(RegisterActivity.this,"Registration Failed", Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterActivity.this,"Registration Failed ", Toast.LENGTH_LONG).show();
                             }
                         });
             }
