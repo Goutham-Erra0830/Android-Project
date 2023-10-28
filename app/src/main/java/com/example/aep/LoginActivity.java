@@ -10,6 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import com.google.firebase.FirebaseApp;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -19,11 +26,18 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordText;
 
     private  String enteredPassword;
+    private FirebaseFirestore db;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        FirebaseApp.initializeApp(this);
+
+        // Initialize Firestore
+        db = FirebaseFirestore.getInstance();
+
 
         // Find views by their IDs
         loginButton = findViewById(R.id.login_button);
@@ -70,9 +84,22 @@ public class LoginActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences_erram.edit();
             editor.putString("email", enteredEmail);
             editor.apply();
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(enteredEmail, enteredPassword)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            // User login successful
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            // Proceed to the main app screen
+                            Intent intent = new Intent(this, MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // Handle login failure
+                            Toast.makeText(this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
             //Main activity Calling
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            //Intent intent = new Intent(this, MainActivity.class);
+            //startActivity(intent);
         }
 
     }
