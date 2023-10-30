@@ -7,9 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private  String enteredPassword;
     private FirebaseFirestore db;
+    private Spinner userType;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +92,52 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // User login successful
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            Log.d("LoginActivity","1");
                             // Proceed to the main app screen
-                            Intent intent = new Intent(this, MainActivity.class);
-                            startActivity(intent);
+                            /*Intent intent = new Intent(this, MainActivity.class);
+                            startActivity(intent);*/
+                            if (user != null) {
+                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                String userId = user.getUid();
+                                Log.d("LoginActivity","2");
+                                Log.d("LoginActivity",userId);
+
+                                db.collection("users")
+                                        .document(userId)
+                                        .get()
+                                        .addOnSuccessListener(documentSnapshot -> {
+                                            if (documentSnapshot.exists()) {
+                                                String userType = documentSnapshot.getString("user_type");
+                                                Log.d("LoginActivity","3");
+                                                if ("Coach".equals(userType)) {
+                                                    // User is a Coach, start CoachActivity
+                                                    Intent intent = new Intent(this, Coach.class);
+                                                    startActivity(intent);
+                                                } else if ("Player".equals(userType)){
+                                                    // User is not a Coach, start MainActivity
+                                                    Intent intent = new Intent(this, Student.class);
+                                                    startActivity(intent);
+                                                } else {
+                                                    // User is not a Coach, start MainActivity
+                                                    Intent intent = new Intent(this, MainActivity.class);
+                                                    startActivity(intent);
+                                                }
+                                            } else {
+                                                Log.d("LoginActivity","4");
+                                                // Handle the case where the document doesn't exist
+                                                Toast.makeText(this, "User data not found.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            // Handle any Firestore query errors
+                                            Toast.makeText(this, "Firestore query failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        });
+                            } else {
+                                // Handle the case where user is null
+                                Toast.makeText(this, "User is null.", Toast.LENGTH_SHORT).show();
+                            }
+
+
                         } else {
                             // Handle login failure
                             Toast.makeText(this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
