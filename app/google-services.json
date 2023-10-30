@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "519544458327",
+    "project_id": "aepp-af3e1",
+    "storage_bucket": "aepp-af3e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519544458327:android:b4e7019d66cc2b47cd2712",
+        "android_client_info": {
+          "package_name": "com.example.aep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZWVcaSEIKtuM9iOV6C6PRbWRciJMyBvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

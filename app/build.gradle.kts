@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -46,6 +47,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.8.22")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22")
-    implementation ("com.google.android.material:material:1.6.0")
+    implementation(platform("com.google.firebase:firebase-bom:32.4.0"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-auth:21.0.1")
 
 }
