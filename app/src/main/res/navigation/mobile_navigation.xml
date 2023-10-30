@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.aep.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+
+        <!-- Action inside the HomeFragment -->
+        <action
+            android:id="@+id/action_homeFragment_to_BuildTeamActivity"
+            app:destination="@id/buildTeamActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.aep.ui.gallery.GalleryFragment"
+        android:label="@string/menu_Gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.aep.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_Slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <activity
+        android:id="@+id/buildTeamActivity"
+    android:name="com.example.aep.Build_Team"
+    android:label="Build Team Activity" />
+
+
+</navigation>

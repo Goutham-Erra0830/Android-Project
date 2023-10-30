@@ -13,27 +13,53 @@
         android:theme="@style/Theme.AEP"
         tools:targetApi="31">
         <activity
+            android:name=".SportsRegistration"
+            android:exported="false" />
+        <activity
+            android:name=".Student"
+            android:exported="true"
+            android:label="@string/title_activity_student"
+            android:theme="@style/Theme.AEP.NoActionBar">
+
+
+        </activity>
+        <activity
+            android:name=".Build_Team"
+            android:exported="false" />
+
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Menu"
+            android:exported="false" />
+        <activity
+            android:name=".Coach"
+            android:exported="true"
+            android:label="@string/title_activity_coach"
+            android:theme="@style/Theme.AEP.NoActionBar">
+
+
+
+        </activity>
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>>
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
