@@ -43,9 +43,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
         // Find views by their IDs
-        loginButton = findViewById(R.id.login_button);
+        loginButton = findViewById(R.id.login_btn);
 
-        emailText = findViewById(R.id.email_edittext);
+        emailText = findViewById(R.id.email);
 
         // Initialize SharedPreferences
         SharedPreferences sharedPreference = getSharedPreferences("Email", Context.MODE_PRIVATE);
@@ -63,12 +63,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //To get Email
-        emailText = findViewById(R.id.email_edittext);
+        emailText = findViewById(R.id.email);
         // To Store the entered email in SharedPreferences
         String enteredEmail = emailText.getText().toString();
 
         //to get password
-        passwordText = findViewById(R.id.password_edittext);
+        passwordText = findViewById(R.id.password);
         //Get the password and store it in the enteredPassword variable
         enteredPassword = passwordText.getText().toString();
 

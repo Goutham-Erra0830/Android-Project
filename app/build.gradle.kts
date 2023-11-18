@@ -51,4 +51,8 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-auth:21.0.1")
+    implementation("com.google.android.material:material:1.1.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("com.google.zxing:core:3.4.0")
+    implementation("com.journeyapps:zxing-android-embedded:4.1.0@aar")
 }
