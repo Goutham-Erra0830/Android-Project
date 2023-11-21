@@ -33,8 +33,8 @@ public class Coach extends AppCompatActivity {
         binding = ActivityCoachBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.appBarCoach.toolbar);
-        binding.appBarCoach.fab.setOnClickListener(new View.OnClickListener() {
+      //  setSupportActionBar(binding.appBarCoach.toolbar);
+      /*  binding.appBarCoach.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -51,7 +51,7 @@ public class Coach extends AppCompatActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_coach);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        NavigationUI.setupWithNavController(navigationView, navController);*/
 
     }
 
