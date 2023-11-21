@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         // Initialize imageView1 from the layout
-        teamBuilding = binding.teamBuilding;
+        //teamBuilding = binding.teamBuilding;
 
 
 

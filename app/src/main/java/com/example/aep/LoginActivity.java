@@ -111,11 +111,11 @@ public class LoginActivity extends AppCompatActivity {
                                                 Log.d("LoginActivity","3");
                                                 if ("Coach".equals(userType)) {
                                                     // User is a Coach, start CoachActivity
-                                                    Intent intent = new Intent(this, Coach.class);
+                                                    Intent intent = new Intent(this, CoachActivity.class);
                                                     startActivity(intent);
                                                 } else if ("Player".equals(userType)){
                                                     // User is not a Coach, start MainActivity
-                                                    Intent intent = new Intent(this, Student.class);
+                                                    Intent intent = new Intent(this, PlayerActivity.class);
                                                     startActivity(intent);
                                                 } else {
                                                     // User is not a Coach, start MainActivity

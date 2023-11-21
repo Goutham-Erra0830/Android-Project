@@ -19,14 +19,14 @@ public class StartActivity extends AppCompatActivity {
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StartActivity.this, LoginActivity.class));
+                startActivity(new Intent(StartActivity.this, RegisterActivity.class));
             }
         });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StartActivity.this, RegisterActivity.class));
+                startActivity(new Intent(StartActivity.this, LoginActivity.class));
             }
         });
     }

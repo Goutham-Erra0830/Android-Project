@@ -19,7 +19,7 @@ public class upcomingEventSchedule extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate your fragment's layout and initialize eventViewPager
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        eventViewPager = view.findViewById(R.id.eventViewPager);
+        //eventViewPager = view.findViewById(R.id.eventViewPager);
 
         // Initialize handler and runnable for auto-scrolling
         handler = new Handler(Looper.getMainLooper());
