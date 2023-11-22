@@ -1,0 +1,150 @@
+<!-- activity_player_statistics.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewPlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player Name"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Runs Scored -->
+    <TextView
+        android:id="@+id/textViewRunsScored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Runs Scored"
+        android:layout_below="@id/textViewPlayerName"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextRunsScored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewRunsScored"
+        android:layout_marginTop="8dp"
+        android:hint="Enter Runs Scored"
+        android:inputType="number" />
+
+    <!-- Wickets Taken -->
+    <TextView
+        android:id="@+id/textViewWicketsTaken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wickets Taken"
+        android:layout_below="@id/editTextRunsScored"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextWicketsTaken"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewWicketsTaken"
+        android:layout_marginTop="8dp"
+        android:hint="Enter Wickets Taken"
+        android:inputType="number" />
+
+    <!-- No. of Boundaries -->
+    <TextView
+        android:id="@+id/textViewBoundaries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No. of Boundaries"
+        android:layout_below="@id/editTextWicketsTaken"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextBoundaries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewBoundaries"
+        android:layout_marginTop="8dp"
+        android:hint="Enter No. of Boundaries"
+        android:inputType="number" />
+
+    <!-- Overs Bowled -->
+    <TextView
+        android:id="@+id/textViewOversBowled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Overs Bowled"
+        android:layout_below="@id/editTextBoundaries"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextOversBowled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewOversBowled"
+        android:layout_marginTop="8dp"
+        android:hint="Enter Overs Bowled"
+        android:inputType="numberDecimal" />
+
+    <!-- Balls Played -->
+    <TextView
+        android:id="@+id/textViewBallsPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Balls Played"
+        android:layout_below="@id/editTextOversBowled"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextBallsPlayed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewBallsPlayed"
+        android:layout_marginTop="8dp"
+        android:hint="Enter Balls Played"
+        android:inputType="number" />
+
+    <!-- Catches Taken -->
+    <TextView
+        android:id="@+id/textViewCatchesTaken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Catches Taken"
+        android:layout_below="@id/editTextBallsPlayed"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextCatchesTaken"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCatchesTaken"
+        android:layout_marginTop="8dp"
+        android:hint="Enter Catches Taken"
+        android:inputType="number" />
+
+    <!-- Rating -->
+    <TextView
+        android:id="@+id/textViewRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rating: 5"
+        android:layout_below="@id/editTextCatchesTaken"
+        android:layout_marginTop="16dp" />
+
+    <SeekBar
+        android:id="@+id/seekBarRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewRating"
+        android:max="10"
+        android:progress="5"
+        android:layout_marginTop="8dp" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekBarRating"
+        android:layout_marginTop="20dp"
+        android:text="Save" />
+
+</RelativeLayout>
