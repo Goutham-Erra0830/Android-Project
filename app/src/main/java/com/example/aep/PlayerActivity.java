@@ -20,4 +20,10 @@ public class PlayerActivity extends AppCompatActivity {
         Intent intent = new Intent(PlayerActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void SportsNews(View view)
+    {
+        Intent intent = new Intent(PlayerActivity.this, SportsNewsActivity.class);
+        startActivity(intent);
+    }
 }
