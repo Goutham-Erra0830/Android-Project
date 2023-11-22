@@ -20,6 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -102,6 +103,39 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onSuccess(Void unused) {
                                 Log.d("RegistrationStatus", "User data stored in Firestore");
                                 Toast.makeText(RegisterActivity.this,"Registration successful", Toast.LENGTH_LONG).show();
+                                if(userType == "Player") {
+                                    // Initialize player stats with dummy values
+                                    db.collection("playerstats").document(fullName).get()
+                                            .addOnCompleteListener(task -> {
+                                                if (task.isSuccessful()) {
+                                                    DocumentSnapshot document = task.getResult();
+                                                    if (!document.exists()) {
+                                                        // "playerstats" collection doesn't exist, create it with default values
+                                                        Map<String, Object> defaultValues = new HashMap<>();
+                                                        defaultValues.put("matchesPlayed", 0);
+                                                        defaultValues.put("runsScored", 0);
+                                                        defaultValues.put("wicketsTaken", 0);
+                                                        defaultValues.put("boundaries", 0);
+                                                        defaultValues.put("oversBowled", 0);
+                                                        defaultValues.put("ballsPlayed", 0);
+                                                        defaultValues.put("catchesTaken", 0);
+                                                        defaultValues.put("rating", 0);
+                                                        defaultValues.put("strikeRate", 0);
+                                                        defaultValues.put("totalCenturies", 0);
+                                                        defaultValues.put("totalHalfCenturies", 0);
+
+                                                        db.collection("playerstats").document(fullName).set(defaultValues)
+                                                                .addOnSuccessListener(aVoid -> {
+                                                                    Log.d("RegisterActivity", "Player stats collection created with default values");
+                                                                })
+                                                                .addOnFailureListener(e -> {
+                                                                    Log.e("RegisterActivity", "Error creating default values for player", e);
+                                                                });
+                                                    }
+                                                }
+                                            });
+                                }
+
                                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                 finish();
                             }
@@ -113,6 +147,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this,"Registration Failed ", Toast.LENGTH_LONG).show();
                             }
                         });
+
             }
 
         }).addOnFailureListener(new OnFailureListener() {
