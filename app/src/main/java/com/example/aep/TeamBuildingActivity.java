@@ -171,6 +171,7 @@ public class TeamBuildingActivity extends AppCompatActivity {
                                         teamBAdapter.setPlayerList(players);
                                         teamAAdapter.notifyDataSetChanged();
                                         teamBAdapter.notifyDataSetChanged();
+
                                     }
 
                                 }
