@@ -7,4 +7,7 @@
     <color name="black">#000000</color>
     <color name="red">#F4443E</color>
     <color name="gray">#A9A9A9</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="appBlue">#115AD7</color>
 </resources>
