@@ -1,18 +1,21 @@
 package com.example.aep;
+
 public class NewsItem {
     private String title;
     private String description;
     private String sourceName;
-    private String sourceUrl;
-    private String imageUrl;
+
+    private String url;
+
+    private String urlToImage;
 
     // Constructor
-    public NewsItem(String title, String description, String sourceName, String sourceUrl, String imageUrl) {
+    public NewsItem(String title, String description, String sourceName, String url, String urlToImage) {
         this.title = title;
         this.description = description;
         this.sourceName = sourceName;
-        this.sourceUrl = sourceUrl;
-        this.imageUrl = imageUrl;
+        this.url = url;
+        this.urlToImage = urlToImage;
     }
 
     // Getters and setters (you can generate these automatically in most IDEs)
@@ -40,20 +43,20 @@ public class NewsItem {
         this.sourceName = sourceName;
     }
 
-    public String getSourceUrl() {
-        return sourceUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setSourceUrl(String sourceUrl) {
-        this.sourceUrl = sourceUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getUrlToImage() {
+        return urlToImage;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setUrlToImage(String urlToImage) {
+        this.urlToImage = urlToImage;
     }
 }
 
