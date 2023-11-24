@@ -1,5 +1,6 @@
 package com.example.aep;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,7 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -19,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.google.android.gms.tasks.Continuation;
 
 public class TeamBuildingActivity extends AppCompatActivity {
 
@@ -69,48 +74,101 @@ public class TeamBuildingActivity extends AppCompatActivity {
     private void initializeTeamsData() {
         // Check if "teams" collection exists
         db.collection("teams").document("TeamA").get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                .continueWithTask(new Continuation<DocumentSnapshot, Task<Void>>() {
                     @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    public Task<Void> then(@NonNull Task<DocumentSnapshot> task) throws Exception {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             if (!document.exists()) {
                                 // "teams" collection doesn't exist, initialize TeamA and TeamB data
-                                initializeTeam("TeamA", "player1", "player2", "player3", "player4", "player5", "player6", "player7", "player8", "player9", "player10", "player11", "player12", "player13");
-                                initializeTeam("TeamB", "player15", "player16", "player17", "player18", "player19", "player20", "player21", "player22", "player23", "player24", "player26", "player27", "player28");
+                                return initializeTeam("TeamA", "player1", "player2", "player3", "player4", "player5", "player6", "player7", "player8", "player9", "player10", "player11", "player12", "player13");
                             }
                         } else {
                             // Handle exceptions
                             Toast.makeText(TeamBuildingActivity.this, "Error checking if collection exists", Toast.LENGTH_SHORT).show();
                         }
 
+                        // TeamA data exists, return a completed task
+                        return Tasks.forResult(null);
+                    }
+                })
+                .continueWithTask(new Continuation<Void, Task<Void>>() {
+                    @Override
+                    public Task<Void> then(@NonNull Task<Void> task) throws Exception {
                         // Retrieve TeamA and TeamB data from Firebase
-                        Log.i("yoyo","trying to retrieve data");
-                        retrieveTeamsData();
+                        return initializeTeam("TeamB", "player15", "player16", "player17", "player18", "player19", "player20", "player21", "player22", "player23", "player24", "player26", "player27", "player28");
+                    }
+                })
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // Both TeamA and TeamB data retrieval and initialization completed
+                        if (task.isSuccessful()) {
+                            // Retrieve updated data and update the UI
+                            retrieveTeamsData();
+                        } else {
+                            // Handle exceptions
+                            Toast.makeText(TeamBuildingActivity.this, "Error initializing Team data", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
     }
 
-    private void initializeTeam(String teamName, String... players) {
-        Map<String, Object> teamData = new HashMap<>();
-        List<String> playerList = new ArrayList<>();
-        for (String player : players) {
-            playerList.add(player);
-        }
-        teamData.put("players", playerList);
+    private Task<Void> initializeTeam(String teamName, String... playerNames) {
+        List<Player> playerList = new ArrayList<>();
 
-        // Set data in Firebase
-        db.collection("teams").document(teamName).set(teamData)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(TeamBuildingActivity.this, teamName + " data initialized", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(TeamBuildingActivity.this, "Error initializing " + teamName + " data", Toast.LENGTH_SHORT).show();
+        List<Task<Void>> tasks = new ArrayList<>();
+
+        for (String playerName : playerNames) {
+            Task<Void> playerTask = db.collection("users").whereEqualTo("full_name", playerName).get()
+                    .continueWith(new Continuation<QuerySnapshot, Void>() {
+                        @Override
+                        public Void then(@NonNull Task<QuerySnapshot> task) throws Exception {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Map<String, Object> data = document.getData();
+                                    Player player = PlayerUtils.convertHashMapToPlayer(data);
+                                    playerList.add(player);
+                                }
+                            } else {
+                                // Handle exceptions
+                                Toast.makeText(TeamBuildingActivity.this, "Error retrieving player data", Toast.LENGTH_SHORT).show();
+                            }
+                            return null;
                         }
-                    }
-                });
+                    });
+
+            tasks.add(playerTask);
+        }
+
+        // Return a combined task that completes when all player tasks are finished
+        return Tasks.whenAll(tasks).continueWith(new Continuation<Void, Void>() {
+            @Override
+            public Void then(@NonNull Task<Void> task) throws Exception {
+                if (task.isSuccessful()) {
+                    // All players retrieved, proceed to update Firebase
+                    Map<String, Object> teamData = new HashMap<>();
+                    teamData.put("players", playerList);
+
+                    // Set data in Firebase
+                    db.collection("teams").document(teamName).set(teamData)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(TeamBuildingActivity.this, teamName + " data initialized", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(TeamBuildingActivity.this, "Error initializing " + teamName + " data", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                } else {
+                    // Handle exceptions
+                    Toast.makeText(TeamBuildingActivity.this, "Error initializing Team data", Toast.LENGTH_SHORT).show();
+                }
+                return null;
+            }
+        });
     }
 
     private void retrieveTeamsData() {
@@ -121,11 +179,16 @@ public class TeamBuildingActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
+
                             if (document.exists()) {
-                                List<String> teamAPlayers = (List<String>) document.get("players");
-                                teamAAdapter.setPlayerList(getPlayersFromFullNames(teamAPlayers));
+
+                                //List<Player> teamAPlayers = (List<Player>) document.get("players");
+                                List<HashMap<String, Object>> teamAPlayers = (List<HashMap<String, Object>>) document.get("players");
+                                List<Player> convertedPlayersA = PlayerUtils.convertHashMapListToPlayerList(teamAPlayers);
+                                teamAAdapter.setPlayerList(convertedPlayersA);
                             }
                         } else {
+
                             // Handle exceptions
                             Toast.makeText(TeamBuildingActivity.this, "Error retrieving TeamA data", Toast.LENGTH_SHORT).show();
                         }
@@ -133,17 +196,22 @@ public class TeamBuildingActivity extends AppCompatActivity {
                 });
 
         // Retrieve TeamB data
+        Log.i("insideretrieve","5");
         db.collection("teams").document("TeamB").get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
+
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
-                                List<String> teamBPlayers = (List<String>) document.get("players");
-                                teamBAdapter.setPlayerList(getPlayersFromFullNames(teamBPlayers));
+                                Log.i("insideretrieve","7");
+                                List<HashMap<String, Object>> teamBPlayers = (List<HashMap<String, Object>>) document.get("players");
+                                List<Player> convertedPlayersB = PlayerUtils.convertHashMapListToPlayerList(teamBPlayers);
+                                teamBAdapter.setPlayerList(convertedPlayersB);
                             }
                         } else {
+                            Log.i("insideretrieve","8");
                             // Handle exceptions
                             Toast.makeText(TeamBuildingActivity.this, "Error retrieving TeamB data", Toast.LENGTH_SHORT).show();
                         }
@@ -151,43 +219,31 @@ public class TeamBuildingActivity extends AppCompatActivity {
                 });
     }
 
-    private List<Player> getPlayersFromFullNames(List<String> fullNames) {
-        List<Player> players = new ArrayList<>();
-        for (String fullName : fullNames) {
-            // Retrieve Player data from "users" collection
-            db.collection("users").document(fullName).get()
-                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                            if (task.isSuccessful()) {
-                                DocumentSnapshot document = task.getResult();
-                                if (document.exists()) {
-                                    Player player = document.toObject(Player.class);
-                                    players.add(player);
-
-                                    if (players.size() == 13) {
-                                        // Update the adapter only once after all players are retrieved
-                                        teamAAdapter.setPlayerList(players);
-                                        teamBAdapter.setPlayerList(players);
-                                        teamAAdapter.notifyDataSetChanged();
-                                        teamBAdapter.notifyDataSetChanged();
-                                    }
-
-                                }
-                            } else {
-                                // Handle exceptions
-                                Toast.makeText(TeamBuildingActivity.this, "Error retrieving player data", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-        }
-        return players;
-    }
 
     private void editTeams() {
         // Handle Edit Teams button click
         // This is where you can navigate to the EditTeamActivity or perform any other actions
         // For now, let's show a toast message
         Toast.makeText(this, "Edit Teams Clicked", Toast.LENGTH_SHORT).show();
+        deleteTeamData("TeamA");
+        deleteTeamData("TeamB");
+        Intent intent = new Intent(this, EditTeamActivity.class);
+        startActivity(intent);
+    }
+    private void deleteTeamData(String teamName) {
+        db.collection("teams").document(teamName)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("TeamDeletion", "Team " + teamName + " data deleted successfully");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TeamDeletion", "Error deleting team " + teamName + " data", e);
+                    }
+                });
     }
 }
