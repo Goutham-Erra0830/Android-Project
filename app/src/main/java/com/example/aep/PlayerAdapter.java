@@ -64,4 +64,5 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
             });
         }
     }
+
 }
