@@ -17,6 +17,12 @@
             android:name=".PlanEventActivity"
             android:exported="false" />
         <activity
+            android:name=".PlayerGrowthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlayerInsightsActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditTeamActivity"
             android:exported="false" />
         <activity
