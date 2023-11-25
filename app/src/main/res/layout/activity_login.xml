@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:orientation="vertical"
-    >
+    android:theme="@style/AppTheme">
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        android:contentDescription="Girl holding key next to phone, unlock"
-        android:src="@drawable/ic_undraw_unlock_24mb"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/loginpage1sport"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -22,19 +22,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Welcome"
-        android:textSize="25sp"
+        android:text="Welcome Back"
+        android:textSize="40sp"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         tools:layout_editor_absoluteX="0dp" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal"
+        android:layout_width="350dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/circularbordersolidblue"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/welcome"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="45dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -43,17 +51,22 @@
             android:hint="Email"
             android:theme="@style/TextInputLayoutStyle">
 
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
+                android:layout_gravity="center"
+                android:background="@drawable/circularbordersolid"
+                android:inputType="textEmailAddress"
+                android:padding="20dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="350dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:hint="@string/password"
             app:endIconMode="password_toggle">
@@ -62,27 +75,24 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:background="@drawable/circularbordersolid"
+                android:inputType="textPassword"
+                android:padding="20dp" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/login_btn"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="350dp"
+            android:layout_width="120dp"
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
-            android:text="Continue"
+            android:background="@drawable/circular_grey_bordersolid"
             android:onClick="login"
-            app:backgroundTint="#00bbff"/>
+            android:text="Continue" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/forgot_pass"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_marginTop="4dp"
-            android:text="Forget Password" />
     </LinearLayout>
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 

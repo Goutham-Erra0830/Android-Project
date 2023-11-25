@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.aep">
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -67,8 +68,8 @@
             android:name=".Build_Team"
             android:exported="false" />
         <activity
-            android:name=".Profile"
-            android:exported="false" />
+            android:name=".ProfileActivity"
+            android:exported="true" />
         <activity
             android:name=".Menu"
             android:exported="false" />

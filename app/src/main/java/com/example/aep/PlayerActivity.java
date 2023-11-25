@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -39,6 +42,12 @@ public class PlayerActivity extends AppCompatActivity {
     public void SportsNews(View view)
     {
         Intent intent = new Intent(PlayerActivity.this, SportsNewsActivity.class);
+        startActivity(intent);
+    }
+
+    public void Profile(View view)
+    {
+        Intent intent = new Intent(PlayerActivity.this, ProfileActivity.class);
         startActivity(intent);
     }
 

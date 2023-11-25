@@ -69,6 +69,7 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
     implementation ("com.github.lzyzsd:circleprogress:1.2.1")
     implementation ("com.github.AnyChart:AnyChart-Android:1.1.5")
+    implementation ("com.google.android.material:material:1.4.0")
 
 
 
