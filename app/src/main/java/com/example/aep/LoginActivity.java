@@ -126,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     // User is not a Coach, start MainActivity
                                                     Intent intent = new Intent(this, PlayerActivity.class);
                                                     intent.putExtra("userid", userId);
+                                                    Log.d("intentvalue", userId);
                                                     startActivity(intent);
                                                 } else {
                                                     // User is not a Coach, start MainActivity

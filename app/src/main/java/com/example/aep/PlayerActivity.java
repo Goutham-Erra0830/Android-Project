@@ -32,7 +32,7 @@ public class PlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
 
-        // Initialize WebViews
+       /* // Initialize WebViews
         webView1 = findViewById(R.id.youtubeWebView1);
         webView2 = findViewById(R.id.youtubeWebView2);
         webView3 = findViewById(R.id.youtubeWebView3);
@@ -45,7 +45,15 @@ public class PlayerActivity extends AppCompatActivity {
         // Load YouTube videos
         loadYouTubeVideo(webView1, "-PKH3bITmTM?si=mwsg-UyRpplY7fSe");
         loadYouTubeVideo(webView2, "Xa-PIcqe1I0?si=p3wwg4ZLJuQ9v3-u");
-        loadYouTubeVideo(webView3, "FNAsmZV6u0g?si=KtNwP3SWEUhKVVgk");
+        loadYouTubeVideo(webView3, "FNAsmZV6u0g?si=KtNwP3SWEUhKVVgk");  */
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("userid")) {
+            // Retrieve the string from the Intent
+            userid = intent.getStringExtra("userid");
+
+        }
     }
 
     private void loadYouTubeVideo(WebView webView, String videoId) {
@@ -57,12 +65,7 @@ public class PlayerActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
         // Get the Intent that started this activity
-        Intent intent = getIntent();
 
-        if (intent.hasExtra("userid")) {
-            // Retrieve the string from the Intent
-            userid = intent.getStringExtra("userid");
-        }
 
     }
 
