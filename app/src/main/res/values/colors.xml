@@ -10,4 +10,11 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="appBlue">#115AD7</color>
+
+    <color name="grey">#E9EAEE</color>
+    <color name="yellow">#F8BA0F</color>
+    <color name="goodgrey">#535353</color>
+    <color name="blue">#293859</color>
+    <color name="darkblue">#6600cc</color>
+    <color name="lightgrey">#EEEEEE</color>
 </resources>
