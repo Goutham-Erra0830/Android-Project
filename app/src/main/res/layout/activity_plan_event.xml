@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".PlanEventActivity">
+
+    <EditText
+        android:id="@+id/teamAEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Team A Name"/>
+
+    <EditText
+        android:id="@+id/teamBEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Team B Name"/>
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/locationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Event Location"/>
+
+    <Button
+        android:id="@+id/scheduleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Schedule Event"/>
+</LinearLayout>
+</ScrollView>
