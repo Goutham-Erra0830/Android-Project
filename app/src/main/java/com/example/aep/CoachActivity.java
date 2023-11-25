@@ -26,6 +26,8 @@ public class CoachActivity extends AppCompatActivity {
 
         CardView cardViewDashboardItem2 = findViewById(R.id.dashboardItem2);
         CardView cardViewDashboardItem1 = findViewById(R.id.teamBuilding);
+        CardView cardViewDashboardItem3 = findViewById(R.id.dashboardItem3);
+        CardView cardViewDashboardItem4 = findViewById(R.id.dashboardItem4);
 
         // Set an OnClickListener for the CardView
         cardViewDashboardItem2.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +58,21 @@ public class CoachActivity extends AppCompatActivity {
         loadYouTubeVideo(webView1, "-PKH3bITmTM?si=mwsg-UyRpplY7fSe");
         loadYouTubeVideo(webView2, "Xa-PIcqe1I0?si=p3wwg4ZLJuQ9v3-u");
         loadYouTubeVideo(webView3, "FNAsmZV6u0g?si=KtNwP3SWEUhKVVgk");
+
+        cardViewDashboardItem3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event, start PlayerEvaluationActivity
+                teamGrowth();
+            }
+        });
+        cardViewDashboardItem4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event, start PlayerEvaluationActivity
+                planEvent();
+            }
+        });
     }
 
     private void loadYouTubeVideo(WebView webView, String videoId) {
@@ -74,6 +91,16 @@ public class CoachActivity extends AppCompatActivity {
     }
     private void teamBuilding() {
         Intent intent = new Intent(CoachActivity.this, TeamBuildingActivity.class);
+        startActivity(intent);
+    }
+    private void planEvent() {
+        Intent intent = new Intent(CoachActivity.this, PlanEventActivity.class);
+        startActivity(intent);
+    }
+
+    private void teamGrowth()
+    {
+        Intent intent = new Intent(CoachActivity.this, PlayerGrowthActivity.class);
         startActivity(intent);
     }
 }

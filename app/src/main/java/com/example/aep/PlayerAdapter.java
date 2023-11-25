@@ -32,8 +32,6 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Player player = playerList.get(position);
-        Log.i("PLayerAdapter",player.getFull_name());
-        Log.i("PLayerAdapter","blancc");
         holder.bind(player, listener);
     }
 
@@ -52,13 +50,11 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
 
         void bind(final Player player, final OnItemClickListener listener) {
             textViewPlayerName.setText(player.getFull_name());
-            Log.i("PLayerAdapter",player.getFull_name());
-            Log.i("PLayerAdapter","blancc1");
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.i("PLayerAdapter",player.getFull_name());
-                    Log.i("PLayerAdapter","blancc2");
+
                     listener.onItemClick(player);
                 }
             });

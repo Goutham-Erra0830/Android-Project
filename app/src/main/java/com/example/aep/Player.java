@@ -18,6 +18,22 @@ public class Player {
         this.user_type = user_type;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUser_type(String user_type) {
+        this.user_type = user_type;
+    }
+
     // Getter methods
     public String getEmail() {
         return email;

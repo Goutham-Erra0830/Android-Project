@@ -1,4 +1,5 @@
 package com.example.aep;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +11,12 @@ import java.util.List;
 public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> {
 
     private List<Player> playerList;
+    //private List<String> playerList;
 
     public TeamsAdapter(List<Player> playerList) {
         this.playerList = playerList;
     }
+
 
     @NonNull
     @Override
@@ -22,11 +25,25 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
-    @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Player player = playerList.get(position);
+        /*Player player = playerList.get(position);
         holder.textViewPlayerName.setText(player.getFull_name());
+        Log.i("TeamsAdapter","ela");
+        Log.i("TeamsAdapter",player.getFull_name());*/
+
+        Object item = playerList.get(position);
+        Log.i("TeamsAdapter", "Item at position " + position + " is of type " + item.getClass().getName());
+
+        if (item instanceof Player) {
+            Player player = (Player) item;
+            holder.textViewPlayerName.setText(player.getFull_name());
+            Log.i("TeamsAdapter","ela");
+            Log.i("TeamsAdapter",player.getFull_name());
+        } else {
+            Log.e("TeamsAdapter", "Unexpected item type at position " + position);
+        }
     }
+
 
     @Override
     public int getItemCount() {
@@ -46,5 +63,7 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
         this.playerList = playerList;
         notifyDataSetChanged();
     }
+
+
 }
 
