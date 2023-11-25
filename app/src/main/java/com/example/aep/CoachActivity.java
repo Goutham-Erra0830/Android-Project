@@ -16,6 +16,7 @@ public class CoachActivity extends AppCompatActivity {
 
         CardView cardViewDashboardItem2 = findViewById(R.id.dashboardItem2);
         CardView cardViewDashboardItem1 = findViewById(R.id.teamBuilding);
+        CardView cardViewDashboardItem3 = findViewById(R.id.dashboardItem3);
 
         // Set an OnClickListener for the CardView
         cardViewDashboardItem2.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +33,14 @@ public class CoachActivity extends AppCompatActivity {
                 teamBuilding();
             }
         });
+
+        cardViewDashboardItem3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event, start PlayerEvaluationActivity
+                teamGrowth();
+            }
+        });
     }
     private void playerEvaluation() {
         Intent intent = new Intent(CoachActivity.this, PlayerEvaluationActivity.class);
@@ -39,6 +48,12 @@ public class CoachActivity extends AppCompatActivity {
     }
     private void teamBuilding() {
         Intent intent = new Intent(CoachActivity.this, TeamBuildingActivity.class);
+        startActivity(intent);
+    }
+
+    private void teamGrowth()
+    {
+        Intent intent = new Intent(CoachActivity.this, PlayerGrowthActivity.class);
         startActivity(intent);
     }
 }

@@ -30,6 +30,11 @@ public class LoginActivity extends AppCompatActivity {
     private  String enteredPassword;
     private FirebaseFirestore db;
     private Spinner userType;
+
+    String current_user_email;
+
+   String  userId;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,17 +103,21 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);*/
                             if (user != null) {
                                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                                String userId = user.getUid();
+                                 userId = user.getUid();
                                 Log.d("LoginActivity","2");
                                 Log.d("LoginActivity",userId);
+
 
                                 db.collection("users")
                                         .document(userId)
                                         .get()
                                         .addOnSuccessListener(documentSnapshot -> {
+
                                             if (documentSnapshot.exists()) {
                                                 String userType = documentSnapshot.getString("user_type");
                                                 Log.d("LoginActivity","3");
+                                                current_user_email = user.getEmail();
+                                               // Log.d("LoginActivity",current_user_email);
                                                 if ("Coach".equals(userType)) {
                                                     // User is a Coach, start CoachActivity
                                                     Intent intent = new Intent(this, CoachActivity.class);
@@ -116,6 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 } else if ("Player".equals(userType)){
                                                     // User is not a Coach, start MainActivity
                                                     Intent intent = new Intent(this, PlayerActivity.class);
+                                                    intent.putExtra("userid", userId);
                                                     startActivity(intent);
                                                 } else {
                                                     // User is not a Coach, start MainActivity
