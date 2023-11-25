@@ -30,6 +30,7 @@ public class PlayerActivity extends AppCompatActivity {
 
     }
 
+
     public void SportsRegistration(View view){
 
         Intent intent = new Intent(PlayerActivity.this, MainActivity.class);
@@ -39,6 +40,10 @@ public class PlayerActivity extends AppCompatActivity {
     public void SportsNews(View view)
     {
         Intent intent = new Intent(PlayerActivity.this, SportsNewsActivity.class);
+        startActivity(intent);
+    }
+    public void GptActivity(View view){
+        Intent intent = new Intent(PlayerActivity.this, GptActivity.class);
         startActivity(intent);
     }
 

@@ -133,6 +133,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
+            android:onClick="GptActivity"
             app:cardUseCompatPadding="true">
 
             <!-- Dashboard Item 3 Content -->
