@@ -1,97 +1,97 @@
 package com.example.aep;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import okhttp3.*;
-import okhttp3.logging.HttpLoggingInterceptor;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class GptActivity extends AppCompatActivity {
 
-    private EditText userInputEditText;
-    private Button generateButton;
-    private TextView generatedTextTextView;
+    private EditText editQuery;
+    private TextView tvResponse;
+    private Button btnSend;
+    private OpenAIApiService apiService;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gpt);
 
-        userInputEditText = findViewById(R.id.userInputEditText);
-        generateButton = findViewById(R.id.generateButton);
-        generatedTextTextView = findViewById(R.id.generatedTextTextView);
+        editQuery = findViewById(R.id.editQuery);
+        tvResponse = findViewById(R.id.tvResponse);
+        btnSend = findViewById(R.id.btnSend);
 
-        generateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("bro","inside on click");
-                generateResponse();
-            }
-        });
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading..."); // Set your message here
+        progressDialog.setCancelable(false);
+
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .connectTimeout(30, TimeUnit.SECONDS) // Increase connect timeout
+                .readTimeout(30, TimeUnit.SECONDS)    // Increase read timeout
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.openai.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+
+        apiService = retrofit.create(OpenAIApiService.class);
+
+        btnSend.setOnClickListener(view -> sendQuery());
     }
 
-    private void generateResponse() {
+    private void sendQuery() {
+        progressDialog.show();
+        String query = editQuery.getText().toString();
+        ChatGPTRequest request = new ChatGPTRequest();
 
-        String userInput = userInputEditText.getText().toString();
-        Log.i("bro",userInput);
+        List<ChatGPTRequest.Message> messages = new ArrayList<>();
+        messages.add(new ChatGPTRequest.Message("user", query));  // Assuming "user" is the sender
+        request.setMessages(messages);
+        Log.i("popeye","inside sendquery");
+        //request.setPrompt(query);
+        request.setModel("gpt-3.5-turbo");
 
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+        String apiKey = "Bearer " +BuildConfig.OPENAI_API_KEY; // Replace with your actual API key
+        apiService.getResponse(apiKey, request).enqueue(new Callback<ChatGPTResponse>() {
             @Override
-            public void log(String message) {
-                Log.i("GptActivity", message);
-            }
-        });
-        // Use OkHttp for HTTP requests
-        //OkHttpClient client = new OkHttpClient();
-
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(loggingInterceptor)
-                .build();
-        //String apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions";
-        String apiUrl = "https://api.openai.com/v1/engines/text-davinci-003/completions";
-        // Prepare the request body
-        String requestBody = "{\"prompt\": \"" + userInput + "\"}";
-        Log.i("bro","request body iss: "+requestBody);
-
-        // Create the request
-        Request request = new Request.Builder()
-                .url(apiUrl)
-                .addHeader("Content-Type", "application/json")
-                .addHeader("Authorization", "Bearer "+BuildConfig.OPENAI_API_KEY)
-                .post(RequestBody.create(MediaType.parse("application/json"),requestBody))
-                .build();
-
-
-
-        // Make the request
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    Log.i("bro","Inside response");
-                    final String responseBody = response.body().string();
-                    Log.i("bro",responseBody);
-
-                    // Update UI on the main thread
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            generatedTextTextView.setText(responseBody);
-                        }
-                    });
+            public void onResponse(Call<ChatGPTResponse> call, Response<ChatGPTResponse> response) {
+                progressDialog.dismiss();
+                if (response.isSuccessful() && response.body() != null) {
+                    ChatGPTResponse chatGPTResponse = response.body();
+                    List<ChatGPTResponse.Choice> choices = chatGPTResponse.getChoices();
+                    if (choices != null && !choices.isEmpty()) {
+                        // Assuming you want the first choice's message content
+                        String reply = choices.get(0).getMessage().getContent();
+                        tvResponse.setText(reply);
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
+            public void onFailure(Call<ChatGPTResponse> call, Throwable t) {
+                progressDialog.dismiss();
+                tvResponse.setText("Error: " + t.getMessage());
             }
         });
     }

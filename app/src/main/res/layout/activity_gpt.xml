@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GptActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <EditText
-        android:id="@+id/userInputEditText"
+        android:id="@+id/editQuery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your prompt"/>
+        android:hint="Enter your query"/>
 
     <Button
-        android:id="@+id/generateButton"
-        android:layout_width="match_parent"
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/userInputEditText"
-        android:text="Generate"/>
+        android:text="Send"/>
 
     <TextView
-        android:id="@+id/generatedTextTextView"
+        android:id="@+id/tvResponse"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/generateButton"
-        android:padding="16dp"/>
-</RelativeLayout>
+        android:layout_height="536dp" />
+
+</LinearLayout>
