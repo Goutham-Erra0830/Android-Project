@@ -63,6 +63,7 @@ public class PlayerGrowthActivity extends AppCompatActivity {
                             playerAdapter.notifyDataSetChanged();
                         } else {
                             Toast.makeText(PlayerGrowthActivity.this, "Error fetching players", Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });
