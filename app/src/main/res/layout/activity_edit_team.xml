@@ -18,10 +18,10 @@
     <!-- RecyclerView to display the list of players -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPlayers"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="383dp"
+        android:layout_height="612dp"
         android:layout_above="@+id/doneButton"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp" />
 
     <!-- "Done" button to update TeamA data -->
     <Button
@@ -29,5 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Done"/>
+        android:text="Done"
+        android:enabled="false" />
 </RelativeLayout>

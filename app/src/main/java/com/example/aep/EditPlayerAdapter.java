@@ -14,11 +14,16 @@ public class EditPlayerAdapter extends RecyclerView.Adapter<EditPlayerAdapter.Vi
     private static final int MAX_SELECTED_PLAYERS = 13;
     private List<Player> playerList;
     private List<Player> selectedPlayers;
+    private boolean isTeamASelection=true;
+    private EditTeamActivity editTeamActivity;
 
-    public EditPlayerAdapter(List<Player> playerList) {
+
+    public EditPlayerAdapter(EditTeamActivity editTeamActivity, List<Player> playerList) {
+        this.editTeamActivity = editTeamActivity;
         this.playerList = playerList;
         this.selectedPlayers = new ArrayList<>();
     }
+
     public void setPlayerList(List<Player> playerList) {
         this.playerList = playerList;
         notifyDataSetChanged(); // Notify the adapter that the data has changed
@@ -32,6 +37,14 @@ public class EditPlayerAdapter extends RecyclerView.Adapter<EditPlayerAdapter.Vi
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.edititem_player, parent, false);
         return new ViewHolder(view);
+    }
+    public void setTeamASelection(boolean isTeamASelection) {
+        this.isTeamASelection = isTeamASelection;
+        if (!isTeamASelection) {
+            // Clear selectedPlayers when switching to Team B
+            selectedPlayers.clear();
+        }
+        notifyDataSetChanged(); // Refresh the adapter to reflect the new team selection
     }
 
     @Override
@@ -67,6 +80,7 @@ public class EditPlayerAdapter extends RecyclerView.Adapter<EditPlayerAdapter.Vi
                 } else {
                     selectedPlayers.remove(player);
                 }
+                editTeamActivity.updateButtonState();
             });
         }
     }

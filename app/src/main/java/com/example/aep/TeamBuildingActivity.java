@@ -71,6 +71,7 @@ public class TeamBuildingActivity extends AppCompatActivity {
         initializeTeamsData();
     }
 
+
     private void initializeTeamsData() {
         // Check if "teams" collection exists
         db.collection("teams").document("TeamA").get()
@@ -80,35 +81,47 @@ public class TeamBuildingActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             if (!document.exists()) {
-                                // "teams" collection doesn't exist, initialize TeamA and TeamB data
+                                // "TeamA" data doesn't exist, initialize TeamA data
                                 return initializeTeam("TeamA", "player1", "player2", "player3", "player4", "player5", "player6", "player7", "player8", "player9", "player10", "player11", "player12", "player13");
                             }
                         } else {
                             // Handle exceptions
-                            Toast.makeText(TeamBuildingActivity.this, "Error checking if collection exists", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TeamBuildingActivity.this, "Error checking if TeamA data exists", Toast.LENGTH_SHORT).show();
                         }
 
                         // TeamA data exists, return a completed task
                         return Tasks.forResult(null);
                     }
                 })
-                .continueWithTask(new Continuation<Void, Task<Void>>() {
+                .continueWithTask(new Continuation<Void, Task<DocumentSnapshot>>() {
                     @Override
-                    public Task<Void> then(@NonNull Task<Void> task) throws Exception {
-                        // Retrieve TeamA and TeamB data from Firebase
-                        return initializeTeam("TeamB", "player15", "player16", "player17", "player18", "player19", "player20", "player21", "player22", "player23", "player24", "player26", "player27", "player28");
+                    public Task<DocumentSnapshot> then(@NonNull Task<Void> task) throws Exception {
+                        // Retrieve TeamB data from Firebase
+                        return db.collection("teams").document("TeamB").get();
                     }
                 })
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // Both TeamA and TeamB data retrieval and initialization completed
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            // Retrieve updated data and update the UI
-                            retrieveTeamsData();
+                            DocumentSnapshot document = task.getResult();
+                            if (document != null && document.exists()) {
+                                // "TeamB" data exists, retrieve both TeamA and TeamB data
+                                retrieveTeamsData();
+                            } else {
+                                // "TeamB" data doesn't exist, initialize TeamB data
+                                initializeTeam("TeamB", "player15", "player16", "player17", "player18", "player19", "player20", "player21", "player22", "player23", "player24", "player26", "player27", "player28")
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                // Retrieve updated data and update the UI
+                                                retrieveTeamsData();
+                                            }
+                                        });
+                            }
                         } else {
                             // Handle exceptions
-                            Toast.makeText(TeamBuildingActivity.this, "Error initializing Team data", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TeamBuildingActivity.this, "Error retrieving TeamB data", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
