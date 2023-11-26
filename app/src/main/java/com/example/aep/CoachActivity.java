@@ -45,20 +45,6 @@ public class CoachActivity extends AppCompatActivity {
             }
         });
 
-        webView1 = findViewById(R.id.youtubeWebView4);
-        webView2 = findViewById(R.id.youtubeWebView5);
-        webView3 = findViewById(R.id.youtubeWebView6);
-
-        // Set up ViewFlipper
-        viewFlipper = findViewById(R.id.viewFlipper);
-        viewFlipper.setFlipInterval(5000); // Set the interval between flips in milliseconds
-        viewFlipper.startFlipping(); // Start flipping
-
-        // Load YouTube videos
-        loadYouTubeVideo(webView1, "-PKH3bITmTM?si=mwsg-UyRpplY7fSe");
-        loadYouTubeVideo(webView2, "Xa-PIcqe1I0?si=p3wwg4ZLJuQ9v3-u");
-        loadYouTubeVideo(webView3, "FNAsmZV6u0g?si=KtNwP3SWEUhKVVgk");
-
         cardViewDashboardItem3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
