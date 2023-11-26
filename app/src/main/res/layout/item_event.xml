@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_event.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:background="@drawable/bluebackground">
+
+    <!-- Team Image (you can customize this part) -->
+
+    <ImageView
+        android:id="@+id/imageTeam"
+        android:layout_width="247dp"
+        android:layout_height="129dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loginsports" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Team Name -->
+
+        <!-- Team Location -->
+        <TextView
+            android:id="@+id/teamNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team Name"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event Date"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event Time"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/locationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team Location"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Event Date -->
+
+        <!-- Event Time -->
+    </LinearLayout>
+</LinearLayout>

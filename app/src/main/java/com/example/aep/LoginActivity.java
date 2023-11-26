@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private EditText emailText;
 
+
     private EditText passwordText;
 
     private  String enteredPassword;
@@ -51,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.login_btn);
 
         emailText = findViewById(R.id.email);
+        passwordText = findViewById(R.id.password);
 
         // Initialize SharedPreferences
         SharedPreferences sharedPreference = getSharedPreferences("Email", Context.MODE_PRIVATE);
@@ -61,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // Setting the initial text of the email field for the first time default email, then the last entered email
         emailText.setText(storedEmail);
+        emailText.setHint("Email");
+        passwordText.setHint("Password");
     }
 
     public void login(View view)
@@ -117,7 +121,8 @@ public class LoginActivity extends AppCompatActivity {
                                                 String userType = documentSnapshot.getString("user_type");
                                                 Log.d("LoginActivity","3");
                                                 current_user_email = user.getEmail();
-                                               // Log.d("LoginActivity",current_user_email);
+                                                String current_username=documentSnapshot.getString("full_name");
+                                                //Log.d("LoginActivity",current_username);
                                                 if ("Coach".equals(userType)) {
                                                     // User is a Coach, start CoachActivity
                                                     Intent intent = new Intent(this, CoachActivity.class);
@@ -126,6 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     // User is not a Coach, start MainActivity
                                                     Intent intent = new Intent(this, PlayerActivity.class);
                                                     intent.putExtra("userid", userId);
+                                                    intent.putExtra("current_username", current_username);
                                                     Log.d("intentvalue", userId);
                                                     startActivity(intent);
                                                 } else {
