@@ -3,7 +3,8 @@ package com.example.aep;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.appcompat.widget.Toolbar;
+import android.os.Bundle;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -59,6 +60,8 @@ public class SportsNewsActivity extends AppCompatActivity {
         // Create and set the adapter
         newsAdapter = new SportsNewsAdapter(new ArrayList<>());
         recyclerView.setAdapter(newsAdapter);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
        fetchData();

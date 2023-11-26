@@ -1,37 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#293859">
 
-    <view
-        class="android.widget.LinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="240px"
-        android:background="#115AD7"
-        android:gravity="center"
-        android:requiresFadingEdge="vertical">
-
-        <TextView
-            android:id="@+id/appheading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="@string/app_name"
-            android:textColor="#E4E1E1"
-            android:textSize="100px"
-            tools:ignore="MissingConstraints" />
-
-    </view>
-
-    <view
-        class="android.widget.LinearLayout"
+    <ImageView
+        android:id="@+id/myImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/registration"/>
+
+    <Space
+        android:id="@+id/mySpace"
+        android:layout_width="match_parent"
+        android:layout_height="250dp" />
+
+
+    <LinearLayout
+        android:layout_width="550dp"
+        android:layout_height="2000dp"
+        android:layout_below="@+id/mySpace"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
+        android:background="@drawable/register_circular_grey_bordersolid"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="70dp"
         tools:layout_editor_absoluteY="165dp">
@@ -40,87 +35,126 @@
             android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/space"
             android:gravity="center"
             android:text="@string/register"
-            android:textSize="65px" />
+            android:textSize="40sp" />
+
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="450dp"
+            android:layout_below="@+id/mySpace"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@drawable/circularbordersolid"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="70dp"
+            tools:layout_editor_absoluteY="165dp">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/firstname"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/first_name"
+                android:layout_marginStart="16dp"
+                android:textSize="45px"
+                android:background="@drawable/circular_grey_bordersolid"
+                android:gravity="center"
+            android:paddingVertical="8dp"/>
+
+            <EditText
+                android:id="@+id/FullnameET"
+                android:layout_width="270dp"
+                android:layout_height="48dp"
+                android:ems="0"
+                android:hint="@string/full_name"
+                android:layout_marginStart="16dp"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/emailtext"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textSize="45px"
+                android:background="@drawable/circular_grey_bordersolid"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:layout_marginStart="16dp"/>
+
+            <EditText
+                android:id="@+id/emailET"
+                android:layout_width="270dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/enter_email"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:layout_marginStart="16dp"/>
+
+            <TextView
+                android:id="@+id/passwordtext"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:textSize="45px"
+                android:background="@drawable/circular_grey_bordersolid"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:layout_marginStart="16dp"/>
+
+            <EditText
+                android:id="@+id/passwordET"
+                android:layout_width="270dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/enter_password"
+                android:inputType="textPassword"
+                android:layout_marginStart="16dp"
+                />
+
+            <TextView
+                android:id="@+id/profiletype"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_type"
+                android:textSize="45px"
+                android:background="@drawable/circular_grey_bordersolid"
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:paddingVertical="8dp"/>
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/RegisterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="clickedOnRegister"
+                android:padding="8dp"
+                android:text="@string/register"
+                android:textSize="16sp"
+                app:cornerRadius="12dp"
+                tools:layout_editor_absoluteX="161dp"
+                tools:layout_editor_absoluteY="520dp" />
+
+        </LinearLayout>
+    </LinearLayout>
 
 
 
-        <TextView
-            android:id="@+id/firstname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/first_name"
-            android:textSize="45px" />
-
-        <EditText
-            android:id="@+id/FullnameET"
-            android:layout_width="270dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="@string/full_name"
-            android:inputType="text" />
-
-
-        <TextView
-            android:id="@+id/emailtext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/email"
-            android:textSize="45px" />
-
-        <EditText
-            android:id="@+id/emailET"
-            android:layout_width="270dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="@string/enter_email"
-            android:inputType="textEmailAddress"
-            android:minHeight="48dp" />
-
-        <TextView
-            android:id="@+id/passwordtext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textSize="45px" />
-
-        <EditText
-            android:id="@+id/passwordET"
-            android:layout_width="270dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="@string/enter_password"
-            android:inputType="textPassword" />
-
-        <TextView
-            android:id="@+id/profiletype"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/profile_type"
-            android:textSize="45px" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </view>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/RegisterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="8dp"
-        android:text="@string/register"
-        android:onClick="clickedOnRegister"
-        android:textSize="16sp"
-        app:cornerRadius="12dp"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="520dp" />
-
-
-
-
-</LinearLayout>
+    </RelativeLayout>

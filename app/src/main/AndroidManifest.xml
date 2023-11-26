@@ -17,6 +17,9 @@
             android:name=".GptActivity"
             android:exported="false" />
         <activity
+            android:name=".SlideFragment"
+            android:exported="false" />
+        <activity
             android:name=".PlanEventActivity"
             android:exported="false" />
         <activity
@@ -70,8 +73,8 @@
             android:name=".Build_Team"
             android:exported="false" />
         <activity
-            android:name=".Profile"
-            android:exported="false" />
+            android:name=".ProfileActivity"
+            android:exported="true" />
         <activity
             android:name=".Menu"
             android:exported="false" />

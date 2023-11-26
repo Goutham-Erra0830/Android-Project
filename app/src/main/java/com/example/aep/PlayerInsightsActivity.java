@@ -85,6 +85,7 @@ public class PlayerInsightsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_insights);
 
+
         barChart = findViewById(R.id.barChart);
         barChart.getDescription().setEnabled(false);
         barChart.setDrawGridBackground(false);

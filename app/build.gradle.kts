@@ -34,8 +34,10 @@ android {
         viewBinding = true
         buildConfig = true
     }
-
 }
+
+
+
 
 
 dependencies {
@@ -80,5 +82,4 @@ dependencies {
 
 
 }
-
 

@@ -44,9 +44,9 @@ public class GptActivity extends AppCompatActivity {
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-                .connectTimeout(30, TimeUnit.SECONDS) // Increase connect timeout
-                .readTimeout(30, TimeUnit.SECONDS)    // Increase read timeout
-                .writeTimeout(30, TimeUnit.SECONDS)
+                .connectTimeout(45, TimeUnit.SECONDS) // Increase connect timeout
+                .readTimeout(45, TimeUnit.SECONDS)    // Increase read timeout
+                .writeTimeout(45, TimeUnit.SECONDS)
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
