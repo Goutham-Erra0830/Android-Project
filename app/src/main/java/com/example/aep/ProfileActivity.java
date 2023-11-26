@@ -26,6 +26,8 @@ public class ProfileActivity extends AppCompatActivity {
     TextView playerTypeTextView;
     TextView ageTextView;
     Button btnEdit;
+    private String fullName;
+    private String userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +45,8 @@ public class ProfileActivity extends AppCompatActivity {
         btnEdit = findViewById(R.id.btnEdit1);
 
         if (extras != null && extras.containsKey("userid") && extras.containsKey("fullname")) {
-            String userid = extras.getString("userid");
-            String fullName = extras.getString("fullname");
+            userid = extras.getString("userid");
+            fullName = extras.getString("fullname");
             Log.i("hakuna","Name : "+fullName);
             Log.i("hakuna","userid : "+userid);
             // Set the fullName to the playerNameTextView
@@ -84,6 +86,8 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Start the EditProfileActivity
                 Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                intent.putExtra("fullname", fullName);
+                intent.putExtra("userid", userid);
                 startActivity(intent);
             }
         });
