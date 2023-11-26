@@ -9,6 +9,8 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.widget.Button;
 
@@ -23,14 +25,36 @@ public class PlayerActivity extends AppCompatActivity {
     private WebView webView1;
     private WebView webView2;
     private WebView webView3;
+    private ImageView events;
 
     String userid;
+    String fullname;
+    private TextView playername;
 
     private String x;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("userid") && intent.hasExtra("current_username")) {
+            // Retrieve the string from the Intent
+            userid = intent.getStringExtra("userid");
+            fullname= intent.getStringExtra("current_username");
+        }
+
+        playername=findViewById(R.id.textCopy);
+        playername.setText(fullname);
+
+        events=findViewById(R.id.myevents);
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PlayerActivity.this, EventActivity.class));
+            }
+        });
 
        /* // Initialize WebViews
         webView1 = findViewById(R.id.youtubeWebView1);
@@ -47,13 +71,6 @@ public class PlayerActivity extends AppCompatActivity {
         loadYouTubeVideo(webView2, "Xa-PIcqe1I0?si=p3wwg4ZLJuQ9v3-u");
         loadYouTubeVideo(webView3, "FNAsmZV6u0g?si=KtNwP3SWEUhKVVgk");  */
 
-        Intent intent = getIntent();
-
-        if (intent.hasExtra("userid")) {
-            // Retrieve the string from the Intent
-            userid = intent.getStringExtra("userid");
-
-        }
     }
 
     private void loadYouTubeVideo(WebView webView, String videoId) {
@@ -94,28 +111,8 @@ public class PlayerActivity extends AppCompatActivity {
 
     public void PlayerInsights(View view)
     {
-        FirebaseFirestore database = FirebaseFirestore.getInstance();
-        database.collection("users").document(userid).get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        Log.i("userid", userid);
-                        if (document.exists()) {
-
-                             String Fullname = document.getString("full_name");
-                            Intent intent = new Intent(PlayerActivity.this, PlayerInsightsActivity.class);
-                            intent.putExtra("playerFullname", Fullname);
-                            startActivity(intent);
-                        } else {
-                            // Handle the case where the document doesn't exist
-                            Log.e("PlayerStatisticsActivity", "Document does not exist");
-                        }
-                    } else {
-                        // Handle exceptions
-                        Log.e("PlayerStatisticsActivity", "Error getting TotalHalfCenturies", task.getException());
-                    }
-                });
-
-
+        Intent intent = new Intent(PlayerActivity.this, PlayerInsightsActivity.class);
+        intent.putExtra("playerFullname", fullname);
+        startActivity(intent);
     }
 }

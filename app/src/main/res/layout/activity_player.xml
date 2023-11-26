@@ -55,7 +55,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:fontFamily="sans-serif-black"
-            android:text="PLAYER NAME"
+            android:text=" "
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
             android:textSize="30sp"

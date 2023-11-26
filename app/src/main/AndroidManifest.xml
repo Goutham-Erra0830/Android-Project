@@ -17,6 +17,9 @@
             android:name=".GptActivity"
             android:exported="false" />
         <activity
+            android:name=".EventActivity"
+            android:exported="false" />
+        <activity
             android:name=".SlideFragment"
             android:exported="false" />
         <activity

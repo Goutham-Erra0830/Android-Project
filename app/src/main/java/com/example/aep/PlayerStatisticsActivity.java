@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,6 +25,8 @@ public class PlayerStatisticsActivity extends AppCompatActivity {
 
     private String full_name;
 
+    private TextView textViewPlayername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,8 @@ public class PlayerStatisticsActivity extends AppCompatActivity {
         editTextBallsPlayed = findViewById(R.id.editTextBallsPlayed);
         editTextCatchesTaken = findViewById(R.id.editTextCatchesTaken);
 
+        textViewPlayername=findViewById(R.id.textViewPlayerName);
+        textViewPlayername.setText(full_name);
 
         seekBarRating = findViewById(R.id.seekBarRating);
 
@@ -49,6 +54,8 @@ public class PlayerStatisticsActivity extends AppCompatActivity {
                 savePlayerStatistics();
             }
         });
+
+
     }
 
     private void savePlayerStatistics() {
