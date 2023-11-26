@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -32,6 +33,14 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         Bundle extras = getIntent().getExtras();
+        playerNameTextView = findViewById(R.id.playerNameTextView);
+        emailIdTextView = findViewById(R.id.emailIdTextView);
+        phoneNumberTextView = findViewById(R.id.phoneNumberTextView);
+        placeTextView = findViewById(R.id.placeTextView);
+        bloodgrpTextView = findViewById(R.id.bloodgrpTextView);
+        playerTypeTextView = findViewById(R.id.playerTypeTextView);
+        ageTextView = findViewById(R.id.ageTextView);
+        btnEdit = findViewById(R.id.btnEdit1);
 
         if (extras != null && extras.containsKey("userid") && extras.containsKey("fullname")) {
             String userid = extras.getString("userid");
@@ -39,14 +48,37 @@ public class ProfileActivity extends AppCompatActivity {
             Log.i("hakuna","Name : "+fullName);
             Log.i("hakuna","userid : "+userid);
             // Set the fullName to the playerNameTextView
-            playerNameTextView = findViewById(R.id.playerNameTextView);
-            playerNameTextView.setText(fullName);
-            emailIdTextView = findViewById(R.id.emailIdTextView);
 
+            playerNameTextView.setText(fullName);
             retrieveEmailFromFirestore(userid);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            DocumentReference profileRef = db.collection("profile").document(fullName);
+
+            profileRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document != null && document.exists()) {
+                            // Document exists, update TextViews with Firestore data
+                            phoneNumberTextView.setText(document.getString("phoneNumber"));
+                            placeTextView.setText(document.getString("place"));
+                            bloodgrpTextView.setText(document.getString("bloodGroup"));
+                            playerTypeTextView.setText(document.getString("playerType"));
+                            ageTextView.setText(String.valueOf(document.getLong("age")));
+                        } else {
+                            // Document doesn't exist, create it with default values
+                            createDefaultProfile(fullName);
+                        }
+                    } else {
+                        Log.d("TAG", "Error getting profile document: ", task.getException());
+                    }
+                }
+            });
 
         }
-        btnEdit = findViewById(R.id.btnEdit1);
+
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,5 +116,49 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void createDefaultProfile(String fullName) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        // Create a new profile document with default values
+        db.collection("profile").document(fullName)
+                .set(new Profile("5485779999", "Waterloo", "O +", "Bowler", 25))
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("TAG", "Default profile created successfully");
+                            // Update TextViews with default values
+                            phoneNumberTextView.setText("5485779999");
+                            placeTextView.setText("Waterloo");
+                            bloodgrpTextView.setText("O +");
+                            playerTypeTextView.setText("Bowler");
+                            ageTextView.setText("25");
+                        } else {
+                            Log.d("TAG", "Error creating default profile: ", task.getException());
+                        }
+                    }
+                });
+
+        DocumentReference profileRef = db.collection("profile").document(fullName);
+
+        profileRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document != null && document.exists()) {
+                        // Document exists, update TextViews with Firestore data
+                        phoneNumberTextView.setText(document.getString("phoneNumber"));
+                        placeTextView.setText(document.getString("place"));
+                        bloodgrpTextView.setText(document.getString("bloodGroup"));
+                        playerTypeTextView.setText(document.getString("playerType"));
+                        ageTextView.setText(String.valueOf(document.getLong("age")));
+                    }
+                } else {
+                    Log.d("TAG", "Error getting profile document: ", task.getException());
+                }
+            }
+        });
     }
 }
