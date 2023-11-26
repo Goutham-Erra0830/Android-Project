@@ -106,6 +106,8 @@ public class PlayerActivity extends AppCompatActivity {
     public void Profile(View view)
     {
         Intent intent = new Intent(PlayerActivity.this, ProfileActivity.class);
+        intent.putExtra("userid", userid);
+        intent.putExtra("fullname", fullname);
         startActivity(intent);
     }
 
