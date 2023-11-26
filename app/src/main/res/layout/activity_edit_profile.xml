@@ -1,0 +1,57 @@
+<!-- res/layout/activity_edit_profile.xml -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".EditProfileActivity">
+
+    <EditText
+        android:id="@+id/editPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number" />
+
+    <EditText
+        android:id="@+id/editPlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editPhoneNumber"
+        android:layout_marginTop="16dp"
+        android:hint="Place" />
+
+    <EditText
+        android:id="@+id/editBloodGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editPlace"
+        android:layout_marginTop="16dp"
+        android:hint="Blood Group" />
+
+    <EditText
+        android:id="@+id/editPlayerType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editBloodGroup"
+        android:layout_marginTop="16dp"
+        android:hint="Player Type" />
+
+    <EditText
+        android:id="@+id/editAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editPlayerType"
+        android:layout_marginTop="16dp"
+        android:inputType="number"
+        android:hint="Age" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editAge"
+        android:layout_marginTop="24dp"
+        android:text="Save" />
+
+</RelativeLayout>
