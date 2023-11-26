@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,6 +25,8 @@ public class PlayerStatisticsActivity extends AppCompatActivity {
 
     private String full_name;
 
+    private TextView textViewPlayername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,8 @@ public class PlayerStatisticsActivity extends AppCompatActivity {
         editTextBallsPlayed = findViewById(R.id.editTextBallsPlayed);
         editTextCatchesTaken = findViewById(R.id.editTextCatchesTaken);
 
+        textViewPlayername=findViewById(R.id.textViewPlayerName);
+        textViewPlayername.setText(full_name);
 
         seekBarRating = findViewById(R.id.seekBarRating);
 
@@ -49,6 +54,8 @@ public class PlayerStatisticsActivity extends AppCompatActivity {
                 savePlayerStatistics();
             }
         });
+
+
     }
 
     private void savePlayerStatistics() {
@@ -585,54 +592,5 @@ public class PlayerStatisticsActivity extends AppCompatActivity {
         }
         return (int) ((float) runsScored / ballsPlayed * 100);
     }
-
-    // Helper method to calculate total centuries
-    /*private int calculateCenturies(int runsScored) {
-        //int existingCenturies = getExistingCenturiesFromFirebase(); // Replace with your logic
-
-        int existingCenturies = getExistingCenturiesFromFirebase(full_name, new FirestoreCallback() {
-            @Override
-            public void onCallback(int value) {
-                // Use the retrieved value here
-                System.out.println("Existing Centuries: " + value);
-            }
-        });
-        if (runsScored >= 100) {
-            // Increment the existing value from Firebase
-            return existingCenturies + 1;
-        }
-        return existingCenturies;
-    }
-
-    private int calculateHalfCenturies(int runsScored) {
-        //int existingCenturies = getExistingHalfCenturiesFromFirebase(); // Replace with your logic
-
-        int existingHalfCenturies = getExistingHalfCenturiesFromFirebase(full_name, new FirestoreCallback() {
-            @Override
-            public void onCallback(int value) {
-                // Use the retrieved value here
-                System.out.println("Existing HalfCenturies: " + value);
-            }
-        });
-        if (runsScored >= 100) {
-            // Increment the existing value from Firebase
-            return existingHalfCenturies + 1;
-        }
-        return existingHalfCenturies;
-    }*/
-
-    // Helper method to calculate total half centuries
-    /*private int calculateHalfCenturies(int runsScored) {
-        int existingHalfCenturies = getExistingHalfCenturiesFromFirebase();
-        if (runsScored >= 50 && runsScored < 100) {
-            // Increment the existing value from Firebase
-             // Replace with your logic
-            return existingHalfCenturies + 1;
-        }
-        return existingHalfCenturies;
-    }*/
-
-
-
 
 }

@@ -139,27 +139,6 @@ public class PlayerInsightsActivity extends AppCompatActivity {
                         if (document.exists()) {
                             playerInfoTextView.setText(current_user_fullname);
 
-                            // Create a Cartesian chart with vertical bars
-                            /*Cartesian barChart = AnyChart.bar();
-
-                            // Add data to the bar chart
-                            List<DataEntry> data_bar = new ArrayList<>();
-                            data_bar.add(new ValueDataEntry("Centuries", document.getLong("totalCenturies")));
-                            data_bar.add(new ValueDataEntry("Half Centuries", document.getLong("totalHalfCenturies")));
-                            data_bar.add(new ValueDataEntry("Wickets Taken", document.getLong("wicketsTaken")));
-                            data_bar.add(new ValueDataEntry("Catches Taken", document.getLong("catchesTaken")));
-
-                            barChart.data(data_bar);
-
-                            // Customize the bar chart (if needed)
-                            barChart.title("Player Statistics");
-                            // Add more customizations as per your requirements
-
-                            // Display the bar chart in AnyChartView
-                             // Replace with your AnyChartView ID
-                            anyChartView_bar.setChart(barChart);
-                            anyChartView_bar.invalidate();*/
-
                             // bar graph
                             List<BarEntry> entries = new ArrayList<>();
                             entries.add(new BarEntry(1, document.getLong("totalCenturies"))); // Centuries
@@ -182,57 +161,7 @@ public class PlayerInsightsActivity extends AppCompatActivity {
 
                             Integer ballsPlayed = document.getLong("ballsPlayed").intValue();
                             Integer oversBowled = document.getLong("oversBowled").intValue() * 6;
-                            /*// Pie chart
 
-                            // Example data
-
-
-                            List<PieEntry> entries_pie = new ArrayList<>();
-                            entries_pie.add(new PieEntry(ballsPlayed, "Balls Played"));
-                            entries_pie.add(new PieEntry(oversBowled, "Overs Bowled"));
-
-                            PieDataSet dataSet_pie = new PieDataSet(entries_pie, "Performance Distribution");
-
-                            // Set colors for the chart
-                            dataSet_pie.setColors(ColorTemplate.COLORFUL_COLORS);
-
-                            PieData pieData = new PieData(dataSet_pie);
-                            pieChart.setData(pieData);
-
-                            pieChart.invalidate();*/
-
-                            /*//rating chart
-                             // Replace with the actual rating value from your database
-                           // ratingDonutProgress.setProgress(0);
-                            new Handler().postDelayed(() -> {
-                                Log.d("piediagram", "inside dognut ");
-                                @SuppressLint("ObjectAnimatorBinding") ObjectAnimator anim = ObjectAnimator.ofInt(ratingDonutProgress, "donut_progress", ratingValue);
-                                anim.setDuration(100); // Set the duration of the animation in milliseconds
-                                anim.start();
-                            }, 500);
-                            //ratingDonutProgress.setProgress(ratingValue);*/
-
-
-                            // AnyCharts
-                            /*int ratingValue = document.getLong("rating").intValue()*10;
-                            com.anychart.charts.Pie pie = AnyChart.pie();
-                            List<DataEntry> data = new ArrayList<>();
-                            data.add(new ValueDataEntry("Rating", ratingValue));
-                            Log.d("Ratingvalue", String.valueOf(ratingValue));
-                            pie.data(data);
-
-                            // Enable animation and set the animation duration
-                            pie.animation().enabled(true);
-                            pie.animation().duration(1000); // Set the duration of the animation in milliseconds
-
-                            // Customize chart settings if needed
-                            pie.legend().title().enabled(true).text("Legend Title");
-
-                            // Display the chart
-                            anyChartView.setChart(pie);*/
-
-                            // Set background color
-                            //anyChartView.setBackgroundColor("#4CAF50");
                             //Anycharts pie diagram
                             List<DataEntry> data = new ArrayList<>();
                             data.add(new ValueDataEntry("Balls Played", ballsPlayed));
