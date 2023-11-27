@@ -43,7 +43,7 @@ public class Discover extends AppCompatActivity {
         imageViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed(); // Simulate back navigation
+                onBackPressed();
             }
         });
 
