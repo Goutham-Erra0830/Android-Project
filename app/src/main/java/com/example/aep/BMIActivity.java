@@ -1,161 +1,103 @@
 package com.example.aep;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class BMIActivity extends AppCompatActivity {
 
-    String fullname;
-
-    TextView mbmidisplay,magedisplay,mweightdisplay,mheightdisplay,mbmicategory,mgender;
-    Button mgotomain;
-    Intent intent;
-
-    ImageView mimageview;
-    String mbmi;
-    String cateogory;
-    float intbmi;
-
-    String height;
-    String weight;
-
-    float intheight,intweight;
-
-    RelativeLayout mbackground;
-    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bmi);
+        setContentView(R.layout.activity_bmiactivity);
+        final EditText editTextWeight = findViewById(R.id.editTextWeight);
+        final EditText editTextHeight = findViewById(R.id.editTextHeight);
+        final RadioGroup radioGroupGender = findViewById(R.id.radioGroupGender);
+        final Button buttonCalculate = findViewById(R.id.buttonCalculate);
+        final TextView textViewResult = findViewById(R.id.textViewResult);
 
-        Intent intent = getIntent();
-
-        if ( intent.hasExtra("current_username")) {
-            // Retrieve the string from the Intent
-            fullname= intent.getStringExtra("current_username");
-        }
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1E1D1D")));
-        }
-
-        ///   ColorDrawable colorDrawable2=new ColorDrawable(Color.parseColor("#1E1D1D"));
-        //      getSupportActionBar().setBackgroundDrawable(colorDrawable);
-
-
-        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\"></font>"));
-        getSupportActionBar().setTitle("Result");
-
-
-        intent=getIntent();
-        mbmidisplay=findViewById(R.id.bmidisplay);
-        //    magedisplay=findViewById(R.id.agedisplay);
-        //    mweightdisplay=findViewById(R.id.weightdisplay);
-        mbmicategory = findViewById(R.id.bmicategorydispaly);
-        mgotomain=findViewById(R.id.gotomain);
-
-        mimageview=findViewById(R.id.imageview);
-
-        //   mheightdisplay=findViewById(R.id.heightdisplay);
-        mgender=findViewById(R.id.genderdisplay);
-        mbackground=findViewById(R.id.contentlayout);
-
-
-        height= String.valueOf(5.7);
-        weight= String.valueOf(55);
-
-
-        intheight=Float.parseFloat(height);
-        intweight=Float.parseFloat(weight);
-
-        intheight=intheight/100;
-        intbmi=intweight/(intheight*intheight);
-
-
-        mbmi=Float.toString(intbmi);
-        System.out.println(mbmi);
-
-        if(intbmi<16)
-        {
-            mbmicategory.setText("Severe Thinness");
-            //   mbackground.setBackgroundColor(Color.GRAY);
-            mbackground.setBackgroundColor(Color.RED);
-            mimageview.setImageResource(R.drawable.crosss);
-            //  mimageview.setBackground(colorDrawable2);
-
-        }
-        else if(intbmi<16.9 && intbmi>16)
-        {
-            mbmicategory.setText("Moderate Thinness");
-            mbackground.setBackgroundColor(R.color.halfwarn);
-            mimageview.setImageResource(R.drawable.warning);
-            //   mimageview.setBackground(colorDrawable2);
-
-        }
-        else if(intbmi<18.4 && intbmi>17)
-        {
-            mbmicategory.setText("Mild Thinness");
-            mbackground.setBackgroundColor(R.color.halfwarn);
-            mimageview.setImageResource(R.drawable.warning);
-            //   mimageview.setBackground(colorDrawable2);
-        }
-        else if(intbmi<24.9 && intbmi>18.5 )
-        {
-            mbmicategory.setText("Normal");
-            mimageview.setImageResource(R.drawable.ok);
-            // mbackground.setBackgroundColor(Color.YELLOW);
-            //  mimageview.setBackground(colorDrawable2);
-        }
-        else if(intbmi <29.9 && intbmi>25)
-        {
-            mbmicategory.setText("Overweight");
-            mbackground.setBackgroundColor(R.color.halfwarn);
-            mimageview.setImageResource(R.drawable.warning);
-            //mimageview.setBackground(colorDrawable2);
-        }
-        else if(intbmi<34.9 && intbmi>30)
-        {
-            mbmicategory.setText("Obese Class I");
-            mbackground.setBackgroundColor(R.color.halfwarn);
-            mimageview.setImageResource(R.drawable.warning);
-            //  mimageview.setBackground(colorDrawable2);
-        }
-        else
-        {
-            mbmicategory.setText("Obese Class II");
-            mbackground.setBackgroundColor(R.color.warn);
-            mimageview.setImageResource(R.drawable.crosss);
-            //  mimageview.setBackground(colorDrawable2);
-        }
-
-        //magedisplay.setText("your age is"+intent.getStringExtra("age"));
-        //mheightdisplay.setText("Your Height is "+intent.getStringExtra("height"));
-        //mweightdisplay.setText("Your Weight is "+intent.getStringExtra("weight"));
-        mgender.setText(intent.getStringExtra("gender"));
-        mbmidisplay.setText(mbmi);
-
-
-        mgotomain.setOnClickListener(new View.OnClickListener() {
+        buttonCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent1);
+                // Get user input
+                String weightStr = editTextWeight.getText().toString();
+                String heightStr = editTextHeight.getText().toString();
+                boolean isMale = ((RadioButton) findViewById(R.id.radioButtonMale)).isChecked();
+
+                if (!weightStr.isEmpty() && !heightStr.isEmpty()) {
+                    // Convert input to numbers
+                    float weight = Float.parseFloat(weightStr);
+                    float height = Float.parseFloat(heightStr);
+
+                    // Calculate BMI
+                    float bmi = calculateBMI(weight, height, isMale);
+
+                    // Determine BMI category
+                    String category = determineBMICategory(bmi);
+
+                    // Display result with category and color coding
+                    displayResult(bmi, category, textViewResult);
+                } else {
+                    textViewResult.setText("Please enter both weight and height.");
+                    textViewResult.setTextColor(getResources().getColor(android.R.color.holo_red_light));
+                }
             }
         });
-
-
-
-
     }
-}
+
+    private float calculateBMI(float weight, float height, boolean isMale) {
+        // BMI formula: weight (kg) / (height (m) * height (m))
+        float bmi = weight / (height * height);
+
+        // Adjust BMI for gender (if needed)
+        if (!isMale) {
+            // Adjust BMI for females (if needed)
+            // For example, you might add a different adjustment factor for females
+            // based on the specific requirements of your application or health guidelines.
+            // For simplicity, this example assumes no gender-specific adjustment.
+        }
+
+        return bmi;
+    }
+
+    private String determineBMICategory(float bmi) {
+        // Determine BMI category based on WHO guidelines
+        if (bmi < 18.5) {
+            return "Underweight";
+        } else if (bmi < 25) {
+            return "Normal Weight";
+        } else if (bmi < 30) {
+            return "Overweight";
+        } else {
+            return "Obese";
+        }
+    }
+
+    private void displayResult(float bmi, String category, TextView textViewResult) {
+        String resultText = "Your BMI is: " + String.format("%.2f", bmi) + "\nCategory: " + category;
+        textViewResult.setText(resultText);
+
+        // Set color based on BMI category
+        int color = getColorForCategory(category);
+        textViewResult.setTextColor(getResources().getColor(color));
+    }
+
+    private int getColorForCategory(String category) {
+        switch (category) {
+            case "Underweight":
+                return android.R.color.holo_blue_light;
+            case "Normal Weight":
+                return android.R.color.holo_green_light;
+            case "Overweight":
+                return android.R.color.holo_orange_light;
+            case "Obese":
+                return android.R.color.holo_red_light;
+            default:
+                return android.R.color.black;
+        }
