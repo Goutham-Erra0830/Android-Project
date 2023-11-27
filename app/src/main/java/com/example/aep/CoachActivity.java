@@ -48,6 +48,7 @@ public class CoachActivity extends AppCompatActivity {
         CardView cardViewDashboardItem4 = findViewById(R.id.dashboardItem4);
         profileCoach = findViewById(R.id.profileCoach);
         coachname=findViewById(R.id.textCopy);
+        coachname.setText(fullname);
         // Set an OnClickListener for the CardView
         cardViewDashboardItem2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +80,7 @@ public class CoachActivity extends AppCompatActivity {
             }
         });
 
-        coachname.setText(fullname);
+
 
         profileCoach.setOnClickListener(new View.OnClickListener() {
             @Override

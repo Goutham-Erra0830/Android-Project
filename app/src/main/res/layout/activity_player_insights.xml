@@ -16,10 +16,16 @@
 
         <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarplayerinsights"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/blue"/>
+            android:layout_height="40dp"
+            android:elevation="2dp"
+            android:background="@drawable/circularbordersolidblue"
+            android:text="@string/Teambuilding"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <!-- Player Information Area -->
         <TextView

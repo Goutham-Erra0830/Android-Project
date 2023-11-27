@@ -9,18 +9,21 @@
     android:padding="16dp"
     tools:context=".SportsNewsActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarsportsnews"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/blue"/>
+            android:layout_height="40dp"
+            android:elevation="2dp"
+            android:background="@drawable/circularbordersolidblue"
+            android:text="@string/Teambuilding"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:gravity="center"/>
 
-    </com.google.android.material.appbar.AppBarLayout>
+
 
 <!--<LinearLayout-->
 <!--xmlns:android="http://schemas.android.com/apk/res/android"-->

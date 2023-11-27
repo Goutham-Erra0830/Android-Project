@@ -27,6 +27,7 @@
         <activity
             android:name=".GptActivity"
             android:exported="false"
+            android:parentActivityName=".CoachActivity"
             />
         <activity
             android:name=".EventActivity"
@@ -45,7 +46,8 @@
             android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".PlayerInsightsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".EditTeamActivity"
             android:exported="false" />
@@ -80,10 +82,12 @@
         </activity>
         <activity
             android:name=".SportsRegistration"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".SportsNewsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".Student"
             android:exported="true"

@@ -1,9 +1,13 @@
 package com.example.aep;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,6 +15,9 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -60,9 +67,31 @@ public class SportsNewsActivity extends AppCompatActivity {
         // Create and set the adapter
         newsAdapter = new SportsNewsAdapter(new ArrayList<>());
         recyclerView.setAdapter(newsAdapter);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+
+        Toolbar toolbar;
+        toolbar = findViewById(R.id.toolbarsportsnews);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setTitle("Plan Events");
+        // Get ActionBar reference
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            // Set the navigation (up) button color to white
+            final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back); // Replace with your arrow drawable
+            upArrow.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+            actionBar.setHomeAsUpIndicator(upArrow);
+
+            // Set the title text color to white
+            int textColor = getResources().getColor(android.R.color.white);
+            Spannable text = new SpannableString("Plan Events");
+            text.setSpan(new ForegroundColorSpan(textColor), 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+
+            actionBar.setTitle(text);
+
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
        fetchData();
 
