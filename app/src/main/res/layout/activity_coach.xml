@@ -26,7 +26,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/textCopy"
+            android:id="@+id/textCopycoach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -137,7 +137,8 @@
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true"
-                            app:cardBackgroundColor="#F0F0F0">
+                            app:cardBackgroundColor="#F0F0F0"
+                            android:onClick="teamBuilding">
 
                             <!-- Dashboard Item 1 Content -->
                             <LinearLayout
@@ -223,7 +224,8 @@
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true"
-                            app:cardBackgroundColor="#F0F0F0">
+                            app:cardBackgroundColor="#F0F0F0"
+                            android:onClick="teamGrowth">
 
                             <!-- Dashboard Item 3 Content -->
                             <LinearLayout
@@ -260,7 +262,8 @@
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true"
-                            app:cardBackgroundColor="#F0F0F0">
+                            app:cardBackgroundColor="#F0F0F0"
+                            android:onClick="planEvent">
 
                             <!-- Dashboard Item 4 Content -->
                             <LinearLayout
