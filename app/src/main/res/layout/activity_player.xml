@@ -57,7 +57,7 @@
             android:layout_gravity="top"
             android:background="@drawable/circularbordersolidblue"
             android:orientation="vertical"
-            android:paddingTop="50dp"
+            android:paddingTop="30dp"
             android:layout_marginTop="80dp"
             tools:layout_editor_absoluteX="-16dp"
             tools:layout_editor_absoluteY="91dp">
@@ -73,39 +73,94 @@
                 <TextView
                     android:id="@+id/Rating"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
                     android:background="@drawable/circular_grey_bordersolid"
                     android:gravity="center"
                     android:paddingVertical="16dp"
                     android:text="@string/Rating"
-                    android:textSize="18sp" />
+                    android:textSize="40sp"
+                    android:textColor="@color/blue"
+                    android:shadowDx="2"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
 
                 <TextView
                     android:id="@+id/Matchesplayed"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:background="@drawable/circular_grey_bordersolid"
                     android:gravity="center"
                     android:paddingVertical="16dp"
                     android:text="@string/Matchesplayed"
-                    android:textSize="18sp"
+                    android:textSize="40sp"
                     android:ellipsize="end"
+                    android:textColor="@color/blue"
                     android:singleLine="true" />
 
                 <TextView
                     android:id="@+id/Strikerate"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/circular_grey_bordersolid"
                     android:gravity="center"
                     android:paddingVertical="16dp"
                     android:text="@string/Strikerate"
-                    android:textSize="18sp" />
+                    android:textColor="@color/blue"
+                    android:textSize="40sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circular_grey_bordersolid"
+                    android:gravity="center"
+                    android:paddingVertical="16dp"
+                    android:text="Rating"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circular_grey_bordersolid"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="Matches Played"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/circular_grey_bordersolid"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="Strike Rate"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
             </LinearLayout>
 
 
