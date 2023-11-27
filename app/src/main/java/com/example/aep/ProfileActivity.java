@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -80,6 +81,18 @@ public class ProfileActivity extends AppCompatActivity {
             });
 
         }
+
+
+        ImageView imageViewBack = findViewById(R.id.profilebackbutton);
+
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
+
+
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

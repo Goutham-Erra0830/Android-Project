@@ -13,24 +13,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".StartActivity" />
+
+        <activity
+            android:name=".BMIActivity"
+            android:exported="false" />
         <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".GptActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".EventActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".SlideFragment"
             android:exported="false" />
         <activity
             android:name=".PlanEventActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".PlayerGrowthActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".PlayerInsightsActivity"
             android:exported="false" />
@@ -39,13 +51,15 @@
             android:exported="false" />
         <activity
             android:name=".TeamBuildingActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".PlayerStatisticsActivity"
             android:exported="false" />
         <activity
             android:name=".PlayerEvaluationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".CoachActivity"
             android:exported="false" />
@@ -80,7 +94,8 @@
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".Menu"
             android:exported="false" />

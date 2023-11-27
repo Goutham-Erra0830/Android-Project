@@ -17,4 +17,7 @@
     <color name="blue">#293859</color>
     <color name="darkblue">#6600cc</color>
     <color name="lightgrey">#EEEEEE</color>
+    <color name="warn">#FF1313</color>
+    <color name="halfwarn">#483FC8</color>
+    <color name="trans">#00000000</color>
 </resources>

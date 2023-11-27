@@ -9,6 +9,8 @@
     android:padding="16dp"
     tools:context=".SportsNewsActivity">
 
+
+
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -18,26 +20,23 @@
         android:padding="16dp"
         tools:context=".SportsNewsActivity">
 
-        <TextView
-            android:id="@+id/Playerevaluation"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/circularbordersolidblue"
-            android:gravity="center"
-            android:paddingVertical="16dp"
-            android:text="@string/Playerevaluation"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarevaluation"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:elevation="2dp"
+            android:background="@drawable/circular_grey_bordersolid"
+            android:text="@string/Teambuilding"
             android:textSize="18sp"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            />
+            android:gravity="center"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPlayers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/Playerevaluation"
+            android:layout_below="@id/toolbarevaluation"
             android:clipToPadding="false"
             android:scrollbars="vertical" />
 

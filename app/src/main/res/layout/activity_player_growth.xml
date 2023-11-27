@@ -17,20 +17,18 @@
         android:padding="16dp"
         tools:context=".SportsNewsActivity">
 
-        <TextView
-            android:id="@+id/Playergrowth"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true"
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarplayergrowth"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:elevation="2dp"
             android:background="@drawable/circularbordersolidblue"
-            android:gravity="center"
-            android:paddingVertical="16dp"
-            android:text="@string/Playergrowth"
+            android:text="@string/Teambuilding"
             android:textSize="18sp"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            />
+            android:gravity="center"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPlayersgrowth"
@@ -39,7 +37,7 @@
             android:padding="16dp"
             android:clipToPadding="false"
             android:scrollbars="vertical"
-            android:layout_below="@id/Playergrowth"
+            android:layout_below="@id/toolbarplayergrowth"
             />
 
     </RelativeLayout>

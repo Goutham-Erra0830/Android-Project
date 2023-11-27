@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -58,6 +59,12 @@ public class TeamBuildingActivity extends AppCompatActivity {
         recyclerViewTeamB.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewTeamB.setAdapter(teamBAdapter);
 
+        Toolbar toolbar;
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Team Building");
+
         // Set up Edit Teams button
         buttonEditTeams.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +76,8 @@ public class TeamBuildingActivity extends AppCompatActivity {
 
         // Check and initialize TeamA and TeamB data in Firebase
         initializeTeamsData();
+
+
     }
 
 

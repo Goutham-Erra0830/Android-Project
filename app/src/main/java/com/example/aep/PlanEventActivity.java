@@ -1,6 +1,12 @@
 package com.example.aep;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -9,7 +15,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,6 +52,31 @@ public class PlanEventActivity extends AppCompatActivity {
         scheduleButton = findViewById(R.id.scheduleButton);
 
         db = FirebaseFirestore.getInstance();
+
+        Toolbar toolbar;
+        toolbar = findViewById(R.id.toolbarplanevent);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setTitle("Plan Events");
+        // Get ActionBar reference
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            // Set the navigation (up) button color to white
+            final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back); // Replace with your arrow drawable
+            upArrow.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+            actionBar.setHomeAsUpIndicator(upArrow);
+
+            // Set the title text color to white
+            int textColor = getResources().getColor(android.R.color.white);
+            Spannable text = new SpannableString("Plan Events");
+            text.setSpan(new ForegroundColorSpan(textColor), 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+
+            actionBar.setTitle(text);
+
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
 
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
