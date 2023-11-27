@@ -330,7 +330,7 @@
 
             <!-- ImageButton 3 -->
             <ImageButton
-                android:id="@+id/profile"
+                android:id="@+id/profileCoach"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
@@ -338,8 +338,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="Button 3"
                 android:src="@drawable/ic_profile"
-                android:scaleType="fitCenter"
-                android:onClick="Profile"/>
+                android:scaleType="fitCenter" />
         </LinearLayout>
 
 

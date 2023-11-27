@@ -43,8 +43,8 @@ public class PlayerActivity extends AppCompatActivity {
     private TextView matchesplayed;
     private TextView strikerate;
 
-    String userid;
-    String fullname;
+    private String userid;
+    private String fullname;
     private TextView playername;
 
     private String x;
@@ -165,12 +165,12 @@ public class PlayerActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void BMI(View view)
+    /*public void BMI(View view)
     {
         Intent intent = new Intent(PlayerActivity.this, BMIActivity.class);
         intent.putExtra("playerFullname", fullname);
         startActivity(intent);
-    }
+    }*/
 
     public void Events(View view)
     {

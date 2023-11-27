@@ -29,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
     Button btnEdit;
     private String fullName;
     private String userid;
+    private Button btnlogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
         playerTypeTextView = findViewById(R.id.playerTypeTextView);
         ageTextView = findViewById(R.id.ageTextView);
         btnEdit = findViewById(R.id.btnEdit1);
+        btnlogout = findViewById(R.id.btnLogout);
 
         if (extras != null && extras.containsKey("userid") && extras.containsKey("fullname")) {
             userid = extras.getString("userid");
@@ -94,6 +96,16 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
+        btnlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                logout();
+
+                finish();
+            }
+        });
+
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +117,15 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void logout(){
+        Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+        // Pass the necessary data if needed
+        startActivity(intent);
+
+        // Finish the EditProfileActivity
+        finish();
     }
 
     private void retrieveEmailFromFirestore(String userId) {

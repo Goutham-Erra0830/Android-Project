@@ -126,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 if ("Coach".equals(userType)) {
                                                     // User is a Coach, start CoachActivity
                                                     Intent intent = new Intent(this, CoachActivity.class);
+                                                    intent.putExtra("userid", userId);
                                                     intent.putExtra("current_username", current_username);
                                                     startActivity(intent);
                                                 } else if ("Player".equals(userType)){

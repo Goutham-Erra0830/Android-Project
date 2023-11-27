@@ -24,6 +24,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private Button btnSave;
     private String userid;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,7 @@ public class EditProfileActivity extends AppCompatActivity {
         editAge = findViewById(R.id.editAge);
         btnSave = findViewById(R.id.btnSave);
 
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +52,10 @@ public class EditProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+    }
+
+    private void logout(){
 
     }
 

@@ -10,6 +10,8 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -19,28 +21,33 @@ public class CoachActivity extends AppCompatActivity {
     private WebView webView1;
     private WebView webView2;
     private WebView webView3;
+    private String userid;
+    private String fullname;
 
     private TextView coachname;
     private String coachcurrentname;
+
+    private ImageButton profileCoach;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach);
 
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("userid") && intent.hasExtra("current_username")) {
+            // Retrieve the string from the Intent
+            userid = intent.getStringExtra("userid");
+            fullname= intent.getStringExtra("current_username");
+        }
+
         CardView cardViewDashboardItem2 = findViewById(R.id.dashboardItem2);
         CardView cardViewDashboardItem1 = findViewById(R.id.teamBuilding);
         CardView cardViewDashboardItem3 = findViewById(R.id.dashboardItem3);
         CardView cardViewDashboardItem4 = findViewById(R.id.dashboardItem4);
+        profileCoach = findViewById(R.id.profileCoach);
         coachname=findViewById(R.id.textCopy);
-
-        Intent intent = getIntent();
-
-        if (intent.hasExtra("current_username")) {
-
-            coachcurrentname= intent.getStringExtra("current_username");
-        }
-
         // Set an OnClickListener for the CardView
         cardViewDashboardItem2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +79,20 @@ public class CoachActivity extends AppCompatActivity {
             }
         });
 
-        coachname.setText(coachcurrentname);
+        coachname.setText(fullname);
+
+        profileCoach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the EditProfileActivity
+                Intent intent = new Intent(CoachActivity.this, ProfileActivity.class);
+                intent.putExtra("fullname", fullname);
+                intent.putExtra("userid", userid);
+
+                Log.i("erripappa","inside on click");
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -102,6 +122,13 @@ public class CoachActivity extends AppCompatActivity {
     private void teamGrowth()
     {
         Intent intent = new Intent(CoachActivity.this, PlayerGrowthActivity.class);
+        startActivity(intent);
+    }
+    private void ProfileCoach(View view)
+    {
+        Intent intent = new Intent(CoachActivity.this, ProfileActivity.class);
+        intent.putExtra("userid", userid);
+        intent.putExtra("fullname", fullname);
         startActivity(intent);
     }
 
