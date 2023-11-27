@@ -42,15 +42,6 @@ public class PlayerEvaluationActivity extends AppCompatActivity {
         recyclerViewPlayers.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewPlayers.setAdapter(playerAdapter);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbarevaluation);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Player Evaluation");
-
-
-
-
         // Fetch players from Firestore
         fetchPlayers();
     }

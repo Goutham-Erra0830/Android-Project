@@ -57,12 +57,6 @@ public class EventActivity extends AppCompatActivity {
         adapter3 = new EventAdapter(futureEvents);
         recyclerView3.setAdapter(adapter3);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbarevents);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Events");
-
         fetchDataFromFirebase();
     }
 

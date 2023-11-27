@@ -39,11 +39,6 @@ public class GptActivity extends AppCompatActivity {
         tvResponse = findViewById(R.id.tvResponse);
         btnSend = findViewById(R.id.btnSend);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbargpt);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("GPT");
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading..."); // Set your message here

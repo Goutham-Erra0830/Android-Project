@@ -59,11 +59,7 @@ public class TeamBuildingActivity extends AppCompatActivity {
         recyclerViewTeamB.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewTeamB.setAdapter(teamBAdapter);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Team Building");
+
 
         // Set up Edit Teams button
         buttonEditTeams.setOnClickListener(new View.OnClickListener() {
