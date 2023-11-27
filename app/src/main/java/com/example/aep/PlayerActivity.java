@@ -75,29 +75,7 @@ public class PlayerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-       /* events.setOnClickListener(new View.OnClickListener() {
 
-       /* events.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PlayerActivity.this, EventActivity.class));
-            }
-        });*/
-
-       /* // Initialize WebViews
-        webView1 = findViewById(R.id.youtubeWebView1);
-        webView2 = findViewById(R.id.youtubeWebView2);
-        webView3 = findViewById(R.id.youtubeWebView3);
-
-        // Set up ViewFlipper
-        viewFlipper = findViewById(R.id.viewFlipper);
-        viewFlipper.setFlipInterval(5000); // Set the interval between flips in milliseconds
-        viewFlipper.startFlipping(); // Start flipping
-
-        // Load YouTube videos
-        loadYouTubeVideo(webView1, "-PKH3bITmTM?si=mwsg-UyRpplY7fSe");
-        loadYouTubeVideo(webView2, "Xa-PIcqe1I0?si=p3wwg4ZLJuQ9v3-u");
-        loadYouTubeVideo(webView3, "FNAsmZV6u0g?si=KtNwP3SWEUhKVVgk");  */
 
         rating=findViewById(R.id.Rating);
         matchesplayed=findViewById(R.id.Matchesplayed);
