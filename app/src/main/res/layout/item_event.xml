@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="horizontal"
-    android:padding="16dp"
-    android:background="@drawable/bluebackground">
+    android:padding="16dp">
 
     <!-- Team Image (you can customize this part) -->
 
@@ -16,7 +15,7 @@
         android:layout_height="129dp"
         android:layout_marginEnd="16dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/loginsports" />
+        android:src="@drawable/sports" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -32,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Team Name"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/orange"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -41,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Event Date"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@android:color/white"
             android:textSize="14sp" />
 
         <TextView
@@ -49,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Event Time"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@android:color/white"
             android:textSize="14sp" />
 
         <TextView
@@ -57,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Team Location"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@android:color/white"
             android:textSize="14sp" />
 
         <!-- Event Date -->

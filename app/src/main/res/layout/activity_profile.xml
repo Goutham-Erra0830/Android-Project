@@ -62,7 +62,10 @@
                 android:layout_height="20dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:padding="4dp"
                 android:src="@drawable/circleyellowfil" />
         </RelativeLayout>
@@ -183,10 +186,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="contact"
+                            android:text="Contact"
                             android:textSize="17sp"
                             android:fontFamily="@font/proximanovaregular"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
 
                         <Space
                             android:layout_width="wrap_content"
@@ -220,7 +224,7 @@
                                 android:layout_height="40dp"
                                 android:background="@drawable/circular_grey_bordersolid"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_call_24dp" />
+                                android:src="@drawable/call" />
 
                             <TextView
                                 android:id="@+id/phoneNumberTextView"
@@ -245,7 +249,7 @@
                                 android:layout_height="40dp"
                                 android:background="@drawable/circular_grey_bordersolid"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_email_24dp" />
+                                android:src="@drawable/mail" />
 
                             <TextView
                                 android:id="@+id/emailIdTextView"
@@ -270,7 +274,7 @@
                                 android:layout_height="40dp"
                                 android:background="@drawable/circular_grey_bordersolid"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_location_24dp" />
+                                android:src="@drawable/location" />
 
                             <TextView
                                 android:id="@+id/placeTextView"
@@ -295,7 +299,7 @@
                                 android:layout_height="40dp"
                                 android:background="@drawable/circular_grey_bordersolid"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_location_24dp" />
+                                android:src="@drawable/blood" />
 
                             <TextView
                                 android:id="@+id/bloodgrpTextView"
@@ -320,7 +324,7 @@
                                 android:layout_height="40dp"
                                 android:background="@drawable/circular_grey_bordersolid"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_location_24dp" />
+                                android:src="@drawable/playertype" />
 
                             <TextView
                                 android:id="@+id/playerTypeTextView"
@@ -345,7 +349,7 @@
                                 android:layout_height="40dp"
                                 android:background="@drawable/circular_grey_bordersolid"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_location_24dp" />
+                                android:src="@drawable/age" />
 
                             <TextView
                                 android:id="@+id/ageTextView"
