@@ -1,57 +1,114 @@
-<!-- res/layout/activity_edit_profile.xml -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".EditProfileActivity">
+    tools:context=".RegisterActivity"
+    android:orientation="vertical"
+    android:background="#293859">
 
-    <EditText
-        android:id="@+id/editPhoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Phone Number" />
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:src="@drawable/editprofile"/>
 
-    <EditText
-        android:id="@+id/editPlace"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editPhoneNumber"
-        android:layout_marginTop="16dp"
-        android:hint="Place" />
 
-    <EditText
-        android:id="@+id/editBloodGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editPlace"
-        android:layout_marginTop="16dp"
-        android:hint="Blood Group" />
+    <LinearLayout
+        android:layout_width="550dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/register_circular_grey_bordersolid"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="165dp"
+        android:layout_below="@id/myImageView" >
 
-    <EditText
-        android:id="@+id/editPlayerType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editBloodGroup"
-        android:layout_marginTop="16dp"
-        android:hint="Player Type" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
 
-    <EditText
-        android:id="@+id/editAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editPlayerType"
-        android:layout_marginTop="16dp"
-        android:inputType="number"
-        android:hint="Age" />
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/space"
+            android:gravity="center"
+            android:text="@string/profile"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editAge"
-        android:layout_marginTop="24dp"
-        android:text="Save" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="450dp"
+            android:layout_below="@+id/mySpace"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@drawable/circularbordersolid"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="70dp"
+            tools:layout_editor_absoluteY="165dp">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <EditText
+                android:id="@+id/editPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number" />
+
+            <EditText
+                android:id="@+id/editPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editPhoneNumber"
+                android:layout_marginTop="16dp"
+                android:hint="Place" />
+
+            <EditText
+                android:id="@+id/editBloodGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editPlace"
+                android:layout_marginTop="16dp"
+                android:hint="Blood Group" />
+
+            <EditText
+                android:id="@+id/editPlayerType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editBloodGroup"
+                android:layout_marginTop="16dp"
+                android:hint="Player Type" />
+
+            <EditText
+                android:id="@+id/editAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editPlayerType"
+                android:layout_marginTop="16dp"
+                android:hint="Age"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editAge"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:text="Save" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 
 </RelativeLayout>

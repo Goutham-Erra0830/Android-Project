@@ -9,6 +9,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -65,6 +66,17 @@ public class PlayerActivity extends AppCompatActivity {
         playername.setText(fullname);
 
         events=findViewById(R.id.myevents);
+        ImageButton discoverButton = findViewById(R.id.discover);
+        discoverButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event, navigate to the DiscoverActivity
+                Intent intent = new Intent(PlayerActivity.this, Discover.class);
+                startActivity(intent);
+            }
+        });
+       /* events.setOnClickListener(new View.OnClickListener() {
+
        /* events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -177,5 +189,7 @@ public class PlayerActivity extends AppCompatActivity {
         Intent intent = new Intent(PlayerActivity.this, EventActivity.class);
         startActivity(intent);
     }
+
+
 
 }

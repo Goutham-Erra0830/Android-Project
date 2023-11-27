@@ -40,6 +40,10 @@
     <string name="Playergrowth">Player Growth</string>
     <string name="Eventplanning">Event Planning</string>
     <string name="Teambuilding">Team Building</string>
+    <string name="profile"> Edit Profile</string>
+    <string name="Playerinsights">Player Insights</string>
+    <string name="sportsnews">Sports News</string>
+    <string name="Highlights">Highlights</string>
 
 
 </resources>

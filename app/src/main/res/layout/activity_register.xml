@@ -38,7 +38,9 @@
             android:layout_below="@+id/space"
             android:gravity="center"
             android:text="@string/register"
-            android:textSize="40sp" />
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
 
         <LinearLayout

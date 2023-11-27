@@ -22,7 +22,7 @@
             android:layout_gravity="top"
             android:fontFamily="sans-serif-black"
             android:text="Hello,"
-            android:textColor="@color/black"
+            android:textColor="@color/mustard"
             android:textSize="30sp" />
 
         <TextView
@@ -270,13 +270,13 @@
                                     android:layout_height="60dp"
                                     android:layout_gravity="center"
                                     android:contentDescription="Dashboard Item 3 Icon"
-                                    android:src="@drawable/nutrition" />
+                                    android:src="@drawable/mlchat" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:text="Nutrition"
+                                    android:text="GPT"
                                     android:textSize="18sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
