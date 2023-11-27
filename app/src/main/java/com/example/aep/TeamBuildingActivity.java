@@ -69,6 +69,7 @@ public class TeamBuildingActivity extends AppCompatActivity {
             }
         });
 
+
         // Set up Edit Teams button
         buttonEditTeams.setOnClickListener(new View.OnClickListener() {
             @Override

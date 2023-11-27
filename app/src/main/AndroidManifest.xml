@@ -14,66 +14,55 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
 
-
-
         <activity
             android:name=".BMIActivity"
-            android:exported="false" />
+            android:exported="true" />
 
         <activity
             android:name=".Discover"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".EditProfileActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".GptActivity"
-            android:exported="false"
-
-            />
+            android:exported="true" />
         <activity
             android:name=".EventActivity"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".SlideFragment"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".PlanEventActivity"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".PlayerGrowthActivity"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".PlayerInsightsActivity"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".EditTeamActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".TeamBuildingActivity"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".PlayerStatisticsActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".PlayerEvaluationActivity"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".CoachActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".PlayerActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ForgotPasswordActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".StartActivity"
             android:exported="true">
@@ -85,12 +74,10 @@
         </activity>
         <activity
             android:name=".SportsRegistration"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".SportsNewsActivity"
-            android:exported="false"
-            />
+            android:exported="true" />
         <activity
             android:name=".Student"
             android:exported="true"
@@ -98,14 +85,13 @@
             android:theme="@style/Theme.AEP.NoActionBar" />
         <activity
             android:name=".Build_Team"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ProfileActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".Menu"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Coach"
             android:exported="true"
@@ -113,7 +99,7 @@
             android:theme="@style/Theme.AEP.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true" />

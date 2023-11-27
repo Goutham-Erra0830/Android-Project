@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.bumptech.glide.Glide;
+
 public class CoachActivity extends AppCompatActivity {
 
     private ViewFlipper viewFlipper;
@@ -38,11 +40,20 @@ public class CoachActivity extends AppCompatActivity {
         coachname=findViewById(R.id.textCopycoach);
         Intent intent = getIntent();
 
+
         if (intent.hasExtra("userid") && intent.hasExtra("current_username")) {
             // Retrieve the string from the Intent
             userid = intent.getStringExtra("userid");
             fullname= intent.getStringExtra("current_username");
         }
+
+
+
+        ImageView gifImageView = findViewById(R.id.gifImageView);
+        Glide.with(this)
+                .load(R.drawable.cricket)
+                .override(2050, 450)  // Set desired dimensions
+                .into(gifImageView);
 
         CardView cardViewDashboardItem2 = findViewById(R.id.dashboardItem2);
         CardView cardViewDashboardItem1 = findViewById(R.id.teamBuilding);

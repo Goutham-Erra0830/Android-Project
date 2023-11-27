@@ -83,8 +83,6 @@ public class SportsNewsActivity extends AppCompatActivity {
 
         // Initialize Glide
         Glide.init(this, new GlideBuilder());
-
-
     }
 
     private void fetchData() {
