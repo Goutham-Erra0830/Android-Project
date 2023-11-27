@@ -10,6 +10,8 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -24,6 +26,8 @@ public class CoachActivity extends AppCompatActivity {
 
     private TextView coachname;
     private String coachcurrentname;
+
+    private ImageButton profileCoach;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,7 @@ public class CoachActivity extends AppCompatActivity {
         CardView cardViewDashboardItem1 = findViewById(R.id.teamBuilding);
         CardView cardViewDashboardItem3 = findViewById(R.id.dashboardItem3);
         CardView cardViewDashboardItem4 = findViewById(R.id.dashboardItem4);
+        profileCoach = findViewById(R.id.profileCoach);
         coachname=findViewById(R.id.textCopy);
         // Set an OnClickListener for the CardView
         cardViewDashboardItem2.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +81,19 @@ public class CoachActivity extends AppCompatActivity {
 
         coachname.setText(fullname);
 
+        profileCoach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the EditProfileActivity
+                Intent intent = new Intent(CoachActivity.this, ProfileActivity.class);
+                intent.putExtra("fullname", fullname);
+                intent.putExtra("userid", userid);
+
+                Log.i("erripappa","inside on click");
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void loadYouTubeVideo(WebView webView, String videoId) {
@@ -106,7 +124,7 @@ public class CoachActivity extends AppCompatActivity {
         Intent intent = new Intent(CoachActivity.this, PlayerGrowthActivity.class);
         startActivity(intent);
     }
-    private void Profile(View view)
+    private void ProfileCoach(View view)
     {
         Intent intent = new Intent(CoachActivity.this, ProfileActivity.class);
         intent.putExtra("userid", userid);

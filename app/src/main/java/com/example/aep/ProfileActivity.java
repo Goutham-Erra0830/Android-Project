@@ -44,6 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
         playerTypeTextView = findViewById(R.id.playerTypeTextView);
         ageTextView = findViewById(R.id.ageTextView);
         btnEdit = findViewById(R.id.btnEdit1);
+        btnlogout = findViewById(R.id.btnLogout);
 
         if (extras != null && extras.containsKey("userid") && extras.containsKey("fullname")) {
             userid = extras.getString("userid");
