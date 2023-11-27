@@ -4,12 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbargpt"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:elevation="2dp"
+        android:background="@drawable/circular_grey_bordersolid"
+        android:text="@string/Teambuilding"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/whatsappimg">
+        android:background="@drawable/whatappback"
+        >
 
             <TextView
                 android:id="@+id/tvResponse"
@@ -38,6 +50,8 @@
             android:id="@+id/btnSend"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             android:text="Send"
             />
 

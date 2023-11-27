@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -55,6 +56,12 @@ public class EventActivity extends AppCompatActivity {
         recyclerView3.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         adapter3 = new EventAdapter(futureEvents);
         recyclerView3.setAdapter(adapter3);
+
+        Toolbar toolbar;
+        toolbar = findViewById(R.id.toolbarevents);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Events");
 
         fetchDataFromFirebase();
     }

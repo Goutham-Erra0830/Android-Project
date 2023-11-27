@@ -23,6 +23,7 @@
         android:padding="16dp">
 
         <ImageView
+            android:id="@+id/profilebackbutton"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="10dp"
@@ -105,7 +106,7 @@
                         android:layout_width="200dp"
                         android:layout_height="150dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/propic" />
+                        android:src="@drawable/profileava" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -357,6 +358,30 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="20dp"
                                 android:text="27"
+                                android:textSize="15sp"
+                                android:textColor="@color/goodgrey"
+                                android:fontFamily="@font/proximanovaregular" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:paddingRight="8dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/circular_grey_bordersolid"
+                                android:padding="10dp"
+                                android:src="@drawable/icon_logout" />
+
+                            <Button
+                                android:id="@+id/btnLogout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="Logout"
                                 android:textSize="15sp"
                                 android:textColor="@color/goodgrey"
                                 android:fontFamily="@font/proximanovaregular" />

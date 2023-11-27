@@ -124,7 +124,6 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
                     android:layout_weight="1"
                     android:background="@drawable/circular_grey_bordersolid"
                     android:gravity="center"
@@ -132,7 +131,8 @@
                     android:text="Rating"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -140,8 +140,8 @@
                     android:layout_weight="1"
                     android:background="@drawable/circular_grey_bordersolid"
                     android:gravity="center"
-                    android:paddingVertical="6dp"
-                    android:text="Matches Played"
+                    android:paddingVertical="16dp"
+                    android:text="Matches"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -151,8 +151,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
+                    android:layout_height="55dp"                    android:layout_weight="1"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/circular_grey_bordersolid"
                     android:gravity="center"
@@ -213,14 +212,15 @@
                             android:id="@+id/sportsRegistration"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:onClick="SportsRegistration"
+                            android:onClick="BMI"
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true"
                             app:layout_constraintEnd_toStartOf="@id/dashboardItem2"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:cardBackgroundColor="#F0F0F0">
+                            app:cardBackgroundColor="#F0F0F0"
+                            >
 
                             <!-- Dashboard Item 1 Content -->
                             <LinearLayout
@@ -235,13 +235,13 @@
                                     android:layout_height="60dp"
                                     android:layout_gravity="center"
                                     android:contentDescription="Dashboard Item 1 Icon"
-                                    android:src="@drawable/sportsregistration" />
+                                    android:src="@drawable/bmi" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:text="Registration"
+                                    android:text="BMI Calculator"
                                     android:textSize="18sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -273,7 +273,7 @@
                                     android:layout_height="60dp"
                                     android:layout_gravity="center"
                                     android:contentDescription="Dashboard Item 2 Icon"
-                                    android:src="@drawable/workouttracking" />
+                                    android:src="@drawable/playerinsights" />
 
                                 <TextView
                                     android:layout_width="wrap_content"

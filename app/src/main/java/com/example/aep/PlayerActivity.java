@@ -66,7 +66,6 @@ public class PlayerActivity extends AppCompatActivity {
         playername.setText(fullname);
 
         events=findViewById(R.id.myevents);
-
         ImageButton discoverButton = findViewById(R.id.discover);
         discoverButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +75,7 @@ public class PlayerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+       /* events.setOnClickListener(new View.OnClickListener() {
 
        /* events.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,17 +177,19 @@ public class PlayerActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /*public void BMI(View view)
+    public void BMI(View view)
     {
         Intent intent = new Intent(PlayerActivity.this, BMIActivity.class);
-        intent.putExtra("playerFullname", fullname);
+        //intent.putExtra("playerFullname", fullname);
         startActivity(intent);
-    }*/
+    }
 
     public void Events(View view)
     {
         Intent intent = new Intent(PlayerActivity.this, EventActivity.class);
         startActivity(intent);
     }
+
+
 
 }

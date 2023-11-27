@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/bmipic"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="550dp"
+        android:layout_height="520dp"
+        android:layout_gravity="center"
+        android:background="@drawable/circularbordersolidblue"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="165dp"
+        android:layout_below="@id/myImageView" >
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/space"
+            android:gravity="center"
+            android:text="BMI "
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="350dp"
+            android:layout_below="@+id/mySpace"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@drawable/circularbordersolid"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="70dp"
+            tools:layout_editor_absoluteY="165dp">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+
+            <EditText
+                android:id="@+id/editTextWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Weight (in kg)"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/editTextHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextWeight"
+                android:layout_marginTop="16dp"
+                android:hint="Enter Height (in meters)"
+                android:inputType="numberDecimal" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextHeight"
+                android:layout_marginTop="16dp">
+
+                <RadioButton
+                    android:id="@+id/radioButtonMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/buttonCalculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radioGroupGender"
+                android:layout_marginTop="16dp"
+                android:text="Calculate BMI" />
+
+            <TextView
+                android:id="@+id/textViewResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buttonCalculate"
+                android:layout_marginTop="16dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

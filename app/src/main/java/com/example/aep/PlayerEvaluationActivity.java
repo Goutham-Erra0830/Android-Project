@@ -28,8 +28,7 @@ public class PlayerEvaluationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_evaluation);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         recyclerViewPlayers = findViewById(R.id.recyclerViewPlayers);
         playerList = new ArrayList<>();
@@ -42,6 +41,12 @@ public class PlayerEvaluationActivity extends AppCompatActivity {
 
         recyclerViewPlayers.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewPlayers.setAdapter(playerAdapter);
+
+        Toolbar toolbar;
+        toolbar = findViewById(R.id.toolbarevaluation);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Player Evaluation");
 
 
 

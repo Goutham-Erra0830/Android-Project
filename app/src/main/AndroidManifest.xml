@@ -7,48 +7,68 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/androidllogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/androidllogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".StartActivity" />
+
+        <activity
+            android:name=".BMIActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BMIActivity"
+            android:exported="false" />
         <activity
             android:name=".Discover"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".GptActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"
+            />
         <activity
             android:name=".EventActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".SlideFragment"
             android:exported="false" />
         <activity
             android:name=".PlanEventActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".PlayerGrowthActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".PlayerInsightsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".EditTeamActivity"
             android:exported="false" />
         <activity
             android:name=".TeamBuildingActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".PlayerStatisticsActivity"
             android:exported="false" />
         <activity
             android:name=".PlayerEvaluationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".CoachActivity"
             android:exported="false" />
@@ -69,10 +89,12 @@
         </activity>
         <activity
             android:name=".SportsRegistration"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".SportsNewsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".Student"
             android:exported="true"
@@ -83,7 +105,8 @@
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".Menu"
             android:exported="false" />

@@ -16,26 +16,18 @@
 
         <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarplayerinsights"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/blue"/>
-
-        <TextView
-            android:id="@+id/Playerinsights"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true"
+            android:layout_height="40dp"
+            android:elevation="2dp"
             android:background="@drawable/circularbordersolidblue"
-            android:gravity="center"
-            android:paddingVertical="16dp"
-            android:text="@string/Playerinsights"
+            android:text="@string/Teambuilding"
             android:textSize="18sp"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            />
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
 
         <!-- Player Information Area -->
         <TextView
