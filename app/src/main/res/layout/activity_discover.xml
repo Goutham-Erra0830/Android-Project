@@ -6,27 +6,26 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarhighlights"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:elevation="2dp"
+        android:background="@drawable/circularbordersolidblue"
+        android:text="@string/Teambuilding"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
 
-            <TextView
-                android:id="@+id/Highlights"
-                android:layout_width="350dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/circularbordersolidblue"
-                android:gravity="center"
-                android:paddingVertical="16dp"
-                android:text="@string/Highlights"
-                android:textSize="18sp"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                app:layout_collapseMode="parallax"/>
+
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/Highlights"
+        android:layout_below="@+id/toolbarhighlights"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:background="@color/grey"
         android:layout_marginTop="90dp">

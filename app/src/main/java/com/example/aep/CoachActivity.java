@@ -125,17 +125,17 @@ public class CoachActivity extends AppCompatActivity {
         Intent intent = new Intent(CoachActivity.this, PlayerGrowthActivity.class);
         startActivity(intent);
     }
-    private void ProfileCoach(View view)
-    {
-        Intent intent = new Intent(CoachActivity.this, ProfileActivity.class);
-        intent.putExtra("userid", userid);
-        intent.putExtra("fullname", fullname);
-        startActivity(intent);
-    }
+
 
     public void Eventscoach(View view)
     {
         Intent intent = new Intent(CoachActivity.this, EventActivity.class);
+        startActivity(intent);
+    }
+
+    public void Discover(View view)
+    {
+        Intent intent = new Intent(CoachActivity.this, Discover.class);
         startActivity(intent);
     }
 

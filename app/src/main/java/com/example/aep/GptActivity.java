@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,12 @@ public class GptActivity extends AppCompatActivity {
         editQuery = findViewById(R.id.editQuery);
         tvResponse = findViewById(R.id.tvResponse);
         btnSend = findViewById(R.id.btnSend);
+
+        Toolbar toolbar;
+        toolbar = findViewById(R.id.toolbargpt);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("GPT");
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading..."); // Set your message here

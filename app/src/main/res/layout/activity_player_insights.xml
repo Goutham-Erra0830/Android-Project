@@ -25,23 +25,9 @@
             android:textSize="18sp"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/Playerinsights"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/circularbordersolidblue"
             android:gravity="center"
-            android:paddingVertical="16dp"
-            android:text="@string/Playerinsights"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            />
+            android:layout_marginTop="10dp"/>
+
 
         <!-- Player Information Area -->
         <TextView

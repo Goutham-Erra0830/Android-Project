@@ -26,7 +26,8 @@
             android:exported="false" />
         <activity
             android:name=".Discover"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
@@ -38,7 +39,7 @@
         <activity
             android:name=".EventActivity"
             android:exported="false"
-            />
+            android:parentActivityName=".CoachActivity"/>
         <activity
             android:name=".SlideFragment"
             android:exported="false" />

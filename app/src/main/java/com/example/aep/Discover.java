@@ -1,13 +1,20 @@
 package com.example.aep;
 
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ViewFlipper;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class Discover extends AppCompatActivity {
 
@@ -29,6 +36,29 @@ public class Discover extends AppCompatActivity {
         webView3 = findViewById(R.id.youtubeWebView3);
         webView4 = findViewById(R.id.youtubeWebView4);
 
+        Toolbar toolbar;
+        toolbar = findViewById(R.id.toolbarhighlights);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setTitle("Plan Events");
+        // Get ActionBar reference
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            // Set the navigation (up) button color to white
+            final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back); // Replace with your arrow drawable
+            upArrow.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+            actionBar.setHomeAsUpIndicator(upArrow);
+
+            // Set the title text color to white
+            int textColor = getResources().getColor(android.R.color.white);
+            Spannable text = new SpannableString("Highlights");
+            text.setSpan(new ForegroundColorSpan(textColor), 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+
+            actionBar.setTitle(text);
+
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         // Load YouTube videos
         loadYouTubeVideo(webView1, "cicDyoOiTrk?si=onQl19jYRQlfBGwE");

@@ -313,7 +313,8 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="Button 1"
                 android:src="@drawable/ic_compass"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:onClick="Discover"/>
 
             <!-- ImageButton 2 -->
             <ImageButton
