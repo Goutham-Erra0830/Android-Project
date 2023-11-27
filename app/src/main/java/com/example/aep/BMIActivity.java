@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,6 +22,15 @@ public class BMIActivity extends AppCompatActivity {
         final RadioGroup radioGroupGender = findViewById(R.id.radioGroupGender);
         final Button buttonCalculate = findViewById(R.id.buttonCalculate);
         final TextView textViewResult = findViewById(R.id.textViewResult);
+
+        ImageView imageViewBack = findViewById(R.id.profileBMI);
+
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
 
         buttonCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
