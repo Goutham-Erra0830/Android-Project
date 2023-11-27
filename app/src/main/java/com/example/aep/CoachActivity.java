@@ -10,6 +10,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 public class CoachActivity extends AppCompatActivity {
@@ -18,6 +19,9 @@ public class CoachActivity extends AppCompatActivity {
     private WebView webView1;
     private WebView webView2;
     private WebView webView3;
+
+    private TextView coachname;
+    private String coachcurrentname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,14 @@ public class CoachActivity extends AppCompatActivity {
         CardView cardViewDashboardItem1 = findViewById(R.id.teamBuilding);
         CardView cardViewDashboardItem3 = findViewById(R.id.dashboardItem3);
         CardView cardViewDashboardItem4 = findViewById(R.id.dashboardItem4);
+        coachname=findViewById(R.id.textCopy);
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("current_username")) {
+
+            coachcurrentname= intent.getStringExtra("current_username");
+        }
 
         // Set an OnClickListener for the CardView
         cardViewDashboardItem2.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +71,9 @@ public class CoachActivity extends AppCompatActivity {
                 planEvent();
             }
         });
+
+        coachname.setText(coachcurrentname);
+
     }
 
     private void loadYouTubeVideo(WebView webView, String videoId) {
@@ -89,4 +104,11 @@ public class CoachActivity extends AppCompatActivity {
         Intent intent = new Intent(CoachActivity.this, PlayerGrowthActivity.class);
         startActivity(intent);
     }
+
+    public void Eventscoach(View view)
+    {
+        Intent intent = new Intent(CoachActivity.this, EventActivity.class);
+        startActivity(intent);
+    }
+
 }

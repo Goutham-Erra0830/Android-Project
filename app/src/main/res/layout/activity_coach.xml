@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:fontFamily="sans-serif-black"
-            android:text="COACH NAME"
+            android:text=" "
             android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="30sp"
@@ -325,7 +325,8 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="Button 2"
                 android:src="@drawable/ic_schedule"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:onClick="Eventscoach"/>
 
             <!-- ImageButton 3 -->
             <ImageButton

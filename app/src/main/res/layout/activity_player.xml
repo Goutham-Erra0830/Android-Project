@@ -79,7 +79,9 @@
                     android:gravity="center"
                     android:paddingVertical="16dp"
                     android:text="@string/Rating"
-                    android:textSize="18sp" />
+                    android:textSize="18sp" >
+
+                </TextView>
 
                 <TextView
                     android:id="@+id/Matchesplayed"
@@ -158,14 +160,15 @@
                             android:id="@+id/sportsRegistration"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:onClick="SportsRegistration"
+                            android:onClick="BMI"
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true"
                             app:layout_constraintEnd_toStartOf="@id/dashboardItem2"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:cardBackgroundColor="#F0F0F0">
+                            app:cardBackgroundColor="#F0F0F0"
+                            >
 
                             <!-- Dashboard Item 1 Content -->
                             <LinearLayout
@@ -354,7 +357,8 @@
             android:background="?android:attr/selectableItemBackground"
             android:contentDescription="Button 2"
             android:src="@drawable/ic_schedule"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:onClick="Events"/>
 
         <!-- ImageButton 3 -->
         <ImageButton
