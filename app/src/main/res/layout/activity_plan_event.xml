@@ -13,17 +13,40 @@
     tools:context=".PlanEventActivity">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarplanevent"
+    <LinearLayout android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:elevation="2dp"
-        android:background="@drawable/circularbordersolidblue"
-        android:text="@string/Teambuilding"
-        android:textSize="18sp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ImageView
+            android:id="@+id/profileplayerevent"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back_24dp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player Insights"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
     <Space
         android:layout_width="match_parent"

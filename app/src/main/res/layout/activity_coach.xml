@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CoachActivity"
-    android:background="@color/grey">
+    android:background="@color/white">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey"
+        android:background="@color/white"
         android:paddingTop="30dp">
 
         <TextView
@@ -26,7 +26,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/textCopy"
+            android:id="@+id/textCopycoach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -55,7 +55,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:layout_gravity="top"
-            android:background="@drawable/circularbordersolidblue"
+            android:background="#FFFFFF"
             android:orientation="vertical"
             android:paddingTop="50dp"
             android:layout_marginTop="80dp"
@@ -66,19 +66,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp">
 
-                <TextView
-                    android:id="@+id/Rating"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/circular_grey_bordersolid"
+                <ImageView
+                    android:id="@+id/gifImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cricket"
+                    android:background="#FFFFFF"
                     android:gravity="center"
-                    android:paddingVertical="16dp"
-                    android:text="@string/Rating"
+                    android:paddingVertical="0dp"
                     android:textSize="18sp" />
 
 
@@ -138,7 +137,8 @@
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true"
-                            app:cardBackgroundColor="#F0F0F0">
+                            app:cardBackgroundColor="#F0F0F0"
+                            android:onClick="teamBuilding">
 
                             <!-- Dashboard Item 1 Content -->
                             <LinearLayout
@@ -224,7 +224,8 @@
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true"
-                            app:cardBackgroundColor="#F0F0F0">
+                            app:cardBackgroundColor="#F0F0F0"
+                            android:onClick="teamGrowth">
 
                             <!-- Dashboard Item 3 Content -->
                             <LinearLayout
@@ -261,7 +262,8 @@
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true"
-                            app:cardBackgroundColor="#F0F0F0">
+                            app:cardBackgroundColor="#F0F0F0"
+                            android:onClick="planEvent">
 
                             <!-- Dashboard Item 4 Content -->
                             <LinearLayout

@@ -3,8 +3,10 @@ package com.example.aep;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -39,11 +41,14 @@ public class GptActivity extends AppCompatActivity {
         tvResponse = findViewById(R.id.tvResponse);
         btnSend = findViewById(R.id.btnSend);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbargpt);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("GPT");
+        ImageView imageViewBack = findViewById(R.id.profilegpt);
+
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading..."); // Set your message here

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,11 +60,15 @@ public class TeamBuildingActivity extends AppCompatActivity {
         recyclerViewTeamB.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewTeamB.setAdapter(teamBAdapter);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Team Building");
+        ImageView imageViewBack = findViewById(R.id.profilebuilding);
+
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
+
 
         // Set up Edit Teams button
         buttonEditTeams.setOnClickListener(new View.OnClickListener() {

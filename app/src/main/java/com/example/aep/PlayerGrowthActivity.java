@@ -15,6 +15,8 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,28 +51,14 @@ public class PlayerGrowthActivity extends AppCompatActivity {
         recyclerViewPlayers.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewPlayers.setAdapter(playerAdapter);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbarplayergrowth);
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setTitle("Player Growth");
-        ActionBar actionBar = getSupportActionBar();
+        ImageView imageViewBack = findViewById(R.id.profilebuilding);
 
-        if (actionBar != null) {
-            // Set the navigation (up) button color to white
-            final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back); // Replace with your arrow drawable
-            upArrow.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
-            actionBar.setHomeAsUpIndicator(upArrow);
-
-            // Set the title text color to white
-            int textColor = getResources().getColor(android.R.color.white);
-            Spannable text = new SpannableString("Player Growth");
-            text.setSpan(new ForegroundColorSpan(textColor), 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-
-            actionBar.setTitle(text);
-
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
 
         // Fetch players from Firestore
         fetchPlayers();

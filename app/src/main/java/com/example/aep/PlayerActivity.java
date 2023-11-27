@@ -47,6 +47,7 @@ public class PlayerActivity extends AppCompatActivity {
     private String userid;
     private String fullname;
     private TextView playername;
+    private ImageView playerprofile;
 
     private String x;
     @Override
@@ -75,7 +76,22 @@ public class PlayerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-       /* events.setOnClickListener(new View.OnClickListener() {
+
+        playerprofile=findViewById(R.id.profileplayer);
+
+        playerprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event, navigate to the DiscoverActivity
+                Intent intent = new Intent(PlayerActivity.this, ProfileActivity.class);
+                intent.putExtra("userid", userid);
+                intent.putExtra("fullname", fullname);
+                startActivity(intent);
+            }
+        });
+       /* events.setOnClickListener(new View.OnClickLis
+       tener() {
+        */
 
        /* events.setOnClickListener(new View.OnClickListener() {
             @Override
