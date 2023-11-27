@@ -354,7 +354,8 @@
             android:background="?android:attr/selectableItemBackground"
             android:contentDescription="Button 2"
             android:src="@drawable/ic_schedule"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:onClick="Events"/>
 
         <!-- ImageButton 3 -->
         <ImageButton
