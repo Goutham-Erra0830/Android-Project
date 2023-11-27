@@ -18,6 +18,8 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -119,32 +121,18 @@ public class PlayerInsightsActivity extends AppCompatActivity {
             current_user_fullname = intent.getStringExtra("playerFullname");
         }
 
+        ImageView imageViewBack = findViewById(R.id.profileinsight);
+
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
 
         playerInfoTextView = findViewById(R.id.playerInfoTextView);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbarplayerinsights);
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setTitle("Plan Events");
-        // Get ActionBar reference
-        ActionBar actionBar = getSupportActionBar();
 
-        if (actionBar != null) {
-            // Set the navigation (up) button color to white
-            final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back); // Replace with your arrow drawable
-            upArrow.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
-            actionBar.setHomeAsUpIndicator(upArrow);
-
-            // Set the title text color to white
-            int textColor = getResources().getColor(android.R.color.white);
-            Spannable text = new SpannableString("Player Insights");
-            text.setSpan(new ForegroundColorSpan(textColor), 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-
-            actionBar.setTitle(text);
-
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
         // Read data from Firebase
         readPlayerData();
     }

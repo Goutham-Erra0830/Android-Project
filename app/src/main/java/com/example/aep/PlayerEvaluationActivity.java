@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -42,13 +43,14 @@ public class PlayerEvaluationActivity extends AppCompatActivity {
         recyclerViewPlayers.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewPlayers.setAdapter(playerAdapter);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbarevaluation);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Player Evaluation");
+        ImageView imageViewBack = findViewById(R.id.profileevalution);
 
-
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
 
 
         // Fetch players from Firestore

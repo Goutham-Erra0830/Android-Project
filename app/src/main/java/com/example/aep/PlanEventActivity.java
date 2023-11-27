@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -53,30 +54,14 @@ public class PlanEventActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbarplanevent);
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setTitle("Plan Events");
-        // Get ActionBar reference
-        ActionBar actionBar = getSupportActionBar();
+        ImageView imageViewBack = findViewById(R.id.profileplayerevent);
 
-        if (actionBar != null) {
-            // Set the navigation (up) button color to white
-            final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back); // Replace with your arrow drawable
-            upArrow.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
-            actionBar.setHomeAsUpIndicator(upArrow);
-
-            // Set the title text color to white
-            int textColor = getResources().getColor(android.R.color.white);
-            Spannable text = new SpannableString("Plan Events");
-            text.setSpan(new ForegroundColorSpan(textColor), 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-
-            actionBar.setTitle(text);
-
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
 
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override

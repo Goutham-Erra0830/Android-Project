@@ -9,18 +9,40 @@
     tools:context=".EventActivity"
     android:background="@color/blue">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarevents"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:elevation="2dp"
-        android:background="@drawable/circular_grey_bordersolid"
-        android:text="@string/Teambuilding"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:id="@+id/topbargrowth"
+        android:layout_width="395dp"
+        android:layout_height="68dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/profileevent"
+            android:layout_width="72dp"
+            android:layout_height="54dp"
+            android:padding="10dp"
+            android:src="@drawable/black_button" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player Growth"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
 
     <Space

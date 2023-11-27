@@ -2,6 +2,9 @@ package com.example.aep;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -57,11 +60,14 @@ public class EventActivity extends AppCompatActivity {
         adapter3 = new EventAdapter(futureEvents);
         recyclerView3.setAdapter(adapter3);
 
-        Toolbar toolbar;
-        toolbar = findViewById(R.id.toolbarevents);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Events");
+        ImageView imageViewBack = findViewById(R.id.profileevent);
+
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); // Simulate back navigation
+            }
+        });
 
         fetchDataFromFirebase();
     }
