@@ -101,3 +101,6 @@ public class BMIActivity extends AppCompatActivity {
             default:
                 return android.R.color.black;
         }
+    }
+
+}
