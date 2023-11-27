@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,17 +12,59 @@
     android:padding="16dp"
     tools:context=".PlanEventActivity">
 
-    <EditText
-        android:id="@+id/teamAEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Team A Name"/>
+    <TextView
+        android:id="@+id/Eventplanning"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/circularbordersolidblue"
+        android:gravity="center"
+        android:paddingVertical="16dp"
+        android:text="@string/Eventplanning"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        />
 
-    <EditText
-        android:id="@+id/teamBEditText"
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Team B Name"/>
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/teamAEditText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Team A Name"
+            android:background="@drawable/circular_grey_bordersolid"
+            android:paddingStart="16dp"
+            android:textColorHint="#000000"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <EditText
+            android:id="@+id/teamBEditText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Team B Name"
+            android:background="@drawable/circular_grey_bordersolid"
+            android:paddingStart="16dp"
+            android:textColorHint="#000000"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp"/>
 
     <DatePicker
         android:id="@+id/datePicker"
@@ -37,12 +80,28 @@
         android:id="@+id/locationEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Event Location"/>
+        android:hint="Event Location"
+        android:paddingStart="16dp"
+        android:textColorHint="#000000"
+        android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/scheduleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Schedule Event"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/scheduleButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Schedule Event"
+            android:background="@drawable/circular_grey_bordersolid"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
 </LinearLayout>
 </ScrollView>

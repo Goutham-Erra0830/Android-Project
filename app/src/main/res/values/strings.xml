@@ -33,6 +33,13 @@
     <string name="title_activity_student">Student</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="Rating">Rating</string>
+    <string name="Strikerate">Strike Rate</string>
+    <string name="Matchesplayed">Matches Played</string>
+    <string name="Playerevaluation">Player Evaluation</string>
+    <string name="Playergrowth">Player Growth</string>
+    <string name="Eventplanning">Event Planning</string>
+    <string name="Teambuilding">Team Building</string>
 
 
 </resources>

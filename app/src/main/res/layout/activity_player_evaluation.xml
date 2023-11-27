@@ -9,27 +9,39 @@
     android:padding="16dp"
     tools:context=".SportsNewsActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPlayers"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="16dp"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="55dp"
-        android:clipToPadding="false"
-        android:scrollbars="vertical" />
+        tools:context=".SportsNewsActivity">
+
+        <TextView
+            android:id="@+id/Playerevaluation"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/circularbordersolidblue"
+            android:gravity="center"
+            android:paddingVertical="16dp"
+            android:text="@string/Playerevaluation"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/Playerevaluation"
+            android:clipToPadding="false"
+            android:scrollbars="vertical" />
+
+    </RelativeLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

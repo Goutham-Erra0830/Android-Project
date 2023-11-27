@@ -10,6 +10,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 public class CoachActivity extends AppCompatActivity {
@@ -20,6 +21,9 @@ public class CoachActivity extends AppCompatActivity {
     private WebView webView3;
     private String userid;
     private String fullname;
+
+    private TextView coachname;
+    private String coachcurrentname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,7 @@ public class CoachActivity extends AppCompatActivity {
         CardView cardViewDashboardItem1 = findViewById(R.id.teamBuilding);
         CardView cardViewDashboardItem3 = findViewById(R.id.dashboardItem3);
         CardView cardViewDashboardItem4 = findViewById(R.id.dashboardItem4);
-
+        coachname=findViewById(R.id.textCopy);
         // Set an OnClickListener for the CardView
         cardViewDashboardItem2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,20 +59,6 @@ public class CoachActivity extends AppCompatActivity {
             }
         });
 
-        webView1 = findViewById(R.id.youtubeWebView4);
-        webView2 = findViewById(R.id.youtubeWebView5);
-        webView3 = findViewById(R.id.youtubeWebView6);
-
-        // Set up ViewFlipper
-        viewFlipper = findViewById(R.id.viewFlipper);
-        viewFlipper.setFlipInterval(5000); // Set the interval between flips in milliseconds
-        viewFlipper.startFlipping(); // Start flipping
-
-        // Load YouTube videos
-        loadYouTubeVideo(webView1, "-PKH3bITmTM?si=mwsg-UyRpplY7fSe");
-        loadYouTubeVideo(webView2, "Xa-PIcqe1I0?si=p3wwg4ZLJuQ9v3-u");
-        loadYouTubeVideo(webView3, "FNAsmZV6u0g?si=KtNwP3SWEUhKVVgk");
-
         cardViewDashboardItem3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +73,9 @@ public class CoachActivity extends AppCompatActivity {
                 planEvent();
             }
         });
+
+        coachname.setText(fullname);
+
     }
 
     private void loadYouTubeVideo(WebView webView, String videoId) {
@@ -120,4 +113,11 @@ public class CoachActivity extends AppCompatActivity {
         intent.putExtra("fullname", fullname);
         startActivity(intent);
     }
+
+    public void Eventscoach(View view)
+    {
+        Intent intent = new Intent(CoachActivity.this, EventActivity.class);
+        startActivity(intent);
+    }
+
 }

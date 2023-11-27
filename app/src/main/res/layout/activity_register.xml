@@ -60,80 +60,79 @@
                 android:id="@+id/firstname"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/first_name"
                 android:layout_marginStart="16dp"
-                android:textSize="45px"
                 android:background="@drawable/circular_grey_bordersolid"
                 android:gravity="center"
-            android:paddingVertical="8dp"/>
+                android:paddingVertical="8dp"
+                android:text="@string/first_name"
+                android:textSize="45px" />
 
             <EditText
                 android:id="@+id/FullnameET"
                 android:layout_width="270dp"
                 android:layout_height="48dp"
+                android:layout_marginStart="16dp"
                 android:ems="0"
                 android:hint="@string/full_name"
-                android:layout_marginStart="16dp"
                 android:inputType="text" />
 
             <TextView
                 android:id="@+id/emailtext"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textSize="45px"
+                android:layout_marginStart="16dp"
                 android:background="@drawable/circular_grey_bordersolid"
                 android:gravity="center"
                 android:paddingVertical="8dp"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/email"
+                android:textSize="45px" />
 
             <EditText
                 android:id="@+id/emailET"
                 android:layout_width="270dp"
                 android:layout_height="48dp"
+                android:layout_marginStart="16dp"
                 android:ems="10"
                 android:hint="@string/enter_email"
                 android:inputType="textEmailAddress"
-                android:minHeight="48dp"
-                android:layout_marginStart="16dp"/>
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/passwordtext"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/password"
-                android:textSize="45px"
+                android:layout_marginStart="16dp"
                 android:background="@drawable/circular_grey_bordersolid"
                 android:gravity="center"
                 android:paddingVertical="8dp"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/password"
+                android:textSize="45px" />
 
             <EditText
                 android:id="@+id/passwordET"
                 android:layout_width="270dp"
                 android:layout_height="48dp"
+                android:layout_marginStart="16dp"
                 android:ems="10"
                 android:hint="@string/enter_password"
-                android:inputType="textPassword"
-                android:layout_marginStart="16dp"
-                />
+                android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/profiletype"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/profile_type"
-                android:textSize="45px"
-                android:background="@drawable/circular_grey_bordersolid"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/circular_grey_bordersolid"
                 android:gravity="center"
-                android:paddingVertical="8dp"/>
+                android:paddingVertical="8dp"
+                android:text="@string/profile_type"
+                android:textSize="45px" />
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"/>
+                android:layout_marginStart="16dp" />
 
             <Space
                 android:layout_width="match_parent"

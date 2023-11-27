@@ -10,14 +10,27 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.widget.Button;
 
+import com.anychart.AnyChart;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.palettes.RangeColors;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerActivity extends AppCompatActivity {
 
@@ -26,6 +39,9 @@ public class PlayerActivity extends AppCompatActivity {
     private WebView webView2;
     private WebView webView3;
     private ImageView events;
+    private TextView rating;
+    private TextView matchesplayed;
+    private TextView strikerate;
 
     private String userid;
     private String fullname;
@@ -49,12 +65,12 @@ public class PlayerActivity extends AppCompatActivity {
         playername.setText(fullname);
 
         events=findViewById(R.id.myevents);
-        events.setOnClickListener(new View.OnClickListener() {
+       /* events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PlayerActivity.this, EventActivity.class));
             }
-        });
+        });*/
 
        /* // Initialize WebViews
         webView1 = findViewById(R.id.youtubeWebView1);
@@ -70,6 +86,37 @@ public class PlayerActivity extends AppCompatActivity {
         loadYouTubeVideo(webView1, "-PKH3bITmTM?si=mwsg-UyRpplY7fSe");
         loadYouTubeVideo(webView2, "Xa-PIcqe1I0?si=p3wwg4ZLJuQ9v3-u");
         loadYouTubeVideo(webView3, "FNAsmZV6u0g?si=KtNwP3SWEUhKVVgk");  */
+
+        rating=findViewById(R.id.Rating);
+        matchesplayed=findViewById(R.id.Matchesplayed);
+        strikerate=findViewById(R.id.Strikerate);
+
+        readPlayerstats();
+
+    }
+
+    private void readPlayerstats() {
+        // Add a ValueEventListener to read data from Firebase
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+        database.collection("playerstats").document(fullname).get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            rating.setText(String.valueOf(document.getLong("rating")));
+                            matchesplayed.setText(String.valueOf(document.getLong("matchesPlayed")));
+                            strikerate.setText(String.valueOf(document.getLong("strikeRate")));
+
+                        } else {
+                            // Handle the case where the document doesn't exist
+                            Log.e("PlayerStatisticsActivity", "Document does not exist");
+                        }
+                    } else {
+                        // Handle exceptions
+                        Log.e("PlayerStatisticsActivity", "Error getting TotalHalfCenturies", task.getException());
+                    }
+                });
 
     }
 
@@ -117,4 +164,18 @@ public class PlayerActivity extends AppCompatActivity {
         intent.putExtra("playerFullname", fullname);
         startActivity(intent);
     }
+
+    public void BMI(View view)
+    {
+        Intent intent = new Intent(PlayerActivity.this, BMIActivity.class);
+        intent.putExtra("playerFullname", fullname);
+        startActivity(intent);
+    }
+
+    public void Events(View view)
+    {
+        Intent intent = new Intent(PlayerActivity.this, EventActivity.class);
+        startActivity(intent);
+    }
+
 }

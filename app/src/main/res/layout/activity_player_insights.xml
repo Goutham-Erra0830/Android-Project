@@ -10,14 +10,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/circular_grey_bordersolid"
+        >
 
         <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"/>
+            android:background="@color/blue"/>
 
         <!-- Player Information Area -->
         <TextView
@@ -35,7 +37,9 @@
             android:id="@+id/barChart"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:background="@drawable/circularbordersolid"
+            android:elevation="6dp"/>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -44,17 +48,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <!-- Pie Chart -->
 
 
         <com.anychart.AnyChartView
             android:id="@+id/anyChartView"
-            android:layout_width="380dp"
+            android:layout_width="370dp"
             android:layout_height="250dp"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:background="@drawable/circularbordersolid"
+            android:elevation="2dp" />
 
 
     </LinearLayout>
