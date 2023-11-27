@@ -18,11 +18,21 @@ public class CoachActivity extends AppCompatActivity {
     private WebView webView1;
     private WebView webView2;
     private WebView webView3;
+    private String userid;
+    private String fullname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach);
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("userid") && intent.hasExtra("current_username")) {
+            // Retrieve the string from the Intent
+            userid = intent.getStringExtra("userid");
+            fullname= intent.getStringExtra("current_username");
+        }
 
         CardView cardViewDashboardItem2 = findViewById(R.id.dashboardItem2);
         CardView cardViewDashboardItem1 = findViewById(R.id.teamBuilding);
@@ -101,6 +111,13 @@ public class CoachActivity extends AppCompatActivity {
     private void teamGrowth()
     {
         Intent intent = new Intent(CoachActivity.this, PlayerGrowthActivity.class);
+        startActivity(intent);
+    }
+    private void Profile(View view)
+    {
+        Intent intent = new Intent(CoachActivity.this, ProfileActivity.class);
+        intent.putExtra("userid", userid);
+        intent.putExtra("fullname", fullname);
         startActivity(intent);
     }
 }

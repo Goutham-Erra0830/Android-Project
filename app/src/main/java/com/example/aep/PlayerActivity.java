@@ -27,8 +27,8 @@ public class PlayerActivity extends AppCompatActivity {
     private WebView webView3;
     private ImageView events;
 
-    String userid;
-    String fullname;
+    private String userid;
+    private String fullname;
     private TextView playername;
 
     private String x;
