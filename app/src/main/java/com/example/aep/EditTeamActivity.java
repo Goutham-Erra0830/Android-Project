@@ -69,9 +69,10 @@ public class EditTeamActivity extends AppCompatActivity  {
                 } else {
                     updateTeamData();
 
-                    Intent intent = new Intent(EditTeamActivity.this, CoachActivity.class);
-                    startActivity(intent);
-                    finish();
+                    //Intent intent = new Intent(EditTeamActivity.this, CoachActivity.class);
+                    //startActivity(intent);
+                    //finish();
+                    onBackPressed();
                 }
             }
         });
