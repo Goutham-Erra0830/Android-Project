@@ -21,7 +21,7 @@ public class upcomingEventSchedule extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         //eventViewPager = view.findViewById(R.id.eventViewPager);
 
-        // Initialize handler and runnable for auto-scrolling
+
         handler = new Handler(Looper.getMainLooper());
         runnable = new Runnable() {
             @Override
@@ -51,7 +51,7 @@ public class upcomingEventSchedule extends Fragment {
     }
 
     private void startAutoScroll() {
-        // Auto-scroll every 3 seconds (adjust the interval as needed)
+
         handler.postDelayed(runnable, 3000);
     }
 

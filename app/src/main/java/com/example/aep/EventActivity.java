@@ -105,6 +105,10 @@ public class EventActivity extends AppCompatActivity {
                         if (documentSnapshot.exists()) {
                             String teamADate = documentSnapshot.getString("TeamA.eventDate");
 
+                            if (teamADate != null && teamADate.length() == 9) {
+                                teamADate = teamADate.substring(0, 8) + "0" + teamADate.substring(8);
+                            }
+
                             // Parse the event date from the database
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
                             LocalDate eventLocalDate = LocalDate.parse(teamADate, formatter);

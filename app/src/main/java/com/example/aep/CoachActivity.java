@@ -62,40 +62,7 @@ public class CoachActivity extends AppCompatActivity {
 
         coachname.setText(fullname);
 
-        /*
-        // Set an OnClickListener for the CardView
-        cardViewDashboardItem2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the click event, start PlayerEvaluationActivity
-                playerEvaluation();
-            }
-        });
-        cardViewDashboardItem1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the click event, start PlayerEvaluationActivity
-                teamBuilding();
-            }
-        });
 
-        cardViewDashboardItem3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the click event, start PlayerEvaluationActivity
-                teamGrowth();
-            }
-        });
-        cardViewDashboardItem4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the click event, start PlayerEvaluationActivity
-                planEvent();
-            }
-        });
-
-
-*/
         profileCoach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

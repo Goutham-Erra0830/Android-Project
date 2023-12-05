@@ -33,7 +33,7 @@ public class SportsNewsAdapter extends RecyclerView.Adapter<SportsNewsAdapter.Sp
     }
 
     public SportsNewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflate your item layout here and return a new ViewHolder
+        // Inflate item layout here and return a new ViewHolder
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_sports_news, parent, false);
         return new SportsNewsViewHolder(view);
     }
@@ -41,7 +41,7 @@ public class SportsNewsAdapter extends RecyclerView.Adapter<SportsNewsAdapter.Sp
     public void onBindViewHolder(@NonNull SportsNewsViewHolder holder, int position) {
         NewsItem newsItem = newsList.get(position);
 
-        // Set data to views in the ViewHolder
+        // Setting data to views in the ViewHolder
         // holder.imageView.setImageResource(newsItem.getImageUrl());
         holder.titleTextView.setText(newsItem.getTitle());
         Log.i("SportsnewsAdapter", newsItem.getTitle());
@@ -55,7 +55,7 @@ public class SportsNewsAdapter extends RecyclerView.Adapter<SportsNewsAdapter.Sp
                 .load(newsItem.getUrlToImage())
                 .into(holder.imageUrl);
 
-        // Set a click listener on the entire item view
+        // Setting a click listener on the entire item view
         holder.itemView.setOnClickListener(v -> {
             // Get the URL of the news article
             String articleUrl = newsItem.getUrl();
@@ -81,7 +81,7 @@ public class SportsNewsAdapter extends RecyclerView.Adapter<SportsNewsAdapter.Sp
     }
 
     public static class SportsNewsViewHolder extends RecyclerView.ViewHolder  {
-        // Define your ViewHolder's views here
+
         public TextView titleTextView;
         public TextView descriptionTextView;
         public TextView sourceName;
@@ -96,7 +96,7 @@ public class SportsNewsAdapter extends RecyclerView.Adapter<SportsNewsAdapter.Sp
             sourceName = itemView.findViewById(R.id.textSourceName);
             sourceUrl = itemView.findViewById(R.id.textLink);
             imageUrl = itemView.findViewById(R.id.imageView);
-            // Find other views by ID as needed
+
         }
     }
 }

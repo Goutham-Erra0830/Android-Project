@@ -65,13 +65,6 @@ public class BMIActivity extends AppCompatActivity {
         // BMI formula: weight (kg) / (height (m) * height (m))
         float bmi = weight / (height * height);
 
-        // Adjust BMI for gender (if needed)
-        if (!isMale) {
-            // Adjust BMI for females (if needed)
-            // For example, you might add a different adjustment factor for females
-            // based on the specific requirements of your application or health guidelines.
-            // For simplicity, this example assumes no gender-specific adjustment.
-        }
 
         return bmi;
     }

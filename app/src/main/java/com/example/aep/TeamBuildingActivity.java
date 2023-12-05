@@ -168,7 +168,7 @@ public class TeamBuildingActivity extends AppCompatActivity {
             tasks.add(playerTask);
         }
 
-        // Return a combined task that completes when all player tasks are finished
+
         return Tasks.whenAll(tasks).continueWith(new Continuation<Void, Void>() {
             @Override
             public Void then(@NonNull Task<Void> task) throws Exception {
@@ -248,9 +248,6 @@ public class TeamBuildingActivity extends AppCompatActivity {
 
 
     private void editTeams() {
-        // Handle Edit Teams button click
-        // This is where you can navigate to the EditTeamActivity or perform any other actions
-        // For now, let's show a toast message
         Toast.makeText(this, "Edit Teams Clicked", Toast.LENGTH_SHORT).show();
         deleteTeamData("TeamA");
         deleteTeamData("TeamB");
