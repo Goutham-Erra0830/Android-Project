@@ -65,7 +65,7 @@
                 android:gravity="center"
                 android:paddingVertical="8dp"
                 android:text="Runs Scored"
-                android:textSize="35px"
+                android:textSize="30px"
                 android:textStyle="bold"/>
 
             <EditText
@@ -90,7 +90,7 @@
                 android:gravity="center"
                 android:paddingVertical="8dp"
                 android:text="Wickets Taken"
-                android:textSize="35px"
+                android:textSize="30px"
                 android:textStyle="bold"/>
 
             <EditText
@@ -116,7 +116,7 @@
                 android:gravity="center"
                 android:paddingVertical="8dp"
                 android:text="No. of Boundaries"
-                android:textSize="35px"
+                android:textSize="30px"
                 android:textStyle="bold"/>
 
             <EditText
@@ -141,7 +141,7 @@
                 android:gravity="center"
                 android:paddingVertical="8dp"
                 android:text="Overs Bowled"
-                android:textSize="35px"
+                android:textSize="30px"
                 android:textStyle="bold"/>
 
 
@@ -166,7 +166,7 @@
                 android:gravity="center"
                 android:paddingVertical="8dp"
                 android:text="Balls Played"
-                android:textSize="35px"
+                android:textSize="30px"
                 android:textStyle="bold"/>
 
             <EditText
@@ -190,7 +190,7 @@
                 android:gravity="center"
                 android:paddingVertical="8dp"
                 android:text="Catches Taken"
-                android:textSize="35px"
+                android:textSize="30px"
                 android:textStyle="bold"/>
 
 
