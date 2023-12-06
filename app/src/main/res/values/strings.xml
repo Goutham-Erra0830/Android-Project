@@ -1,49 +1,8 @@
 <resources>
-    <string name="app_name">AEP</string>
-    <string name="login">Login</string>
-    <string name="loginname">Login Name</string>
-    <string name="password">Password</string>
-    <string name="register">Register</string>
-    <string name="passwordempty">Password cannot be empty.</string>
-    <string name="Invalidemail">Invalid email address.</string>
-    <string name="userid">UserId</string>
-    <string name="enter_employeeid">Enter EmployeeId</string>
-    <string name="enter_password">Enter Password</string>
-    <string name="enter_email">Enter Email</string>
-    <string name="email">Email</string>
-    <string name="full_name">Full name</string>
-    <string name="first_name">Full Name</string>
-    <string name="profile_type">User Type</string>
-    <string name="title_activity_coach">Coach</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Name</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_support">Support</string>
-    <string name="menu_Gallery">Gallery</string>
-    <string name="menu_Slideshow">Slideshow</string>
-    <string name="menu_Help">Help</string>
-    <string name="title_activity_coach_home">coach_home</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="title_activity_student">Student</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="Rating">Rating</string>
-    <string name="Strikerate">Strike Rate</string>
-    <string name="Matchesplayed">Matches Played</string>
-    <string name="Playerevaluation">Player Evaluation</string>
-    <string name="Playergrowth">Player Growth</string>
-    <string name="Eventplanning">Event Planning</string>
-    <string name="Teambuilding">Team Building</string>
-    <string name="profile"> Edit Profile</string>
-    <string name="Playerinsights">Player Insights</string>
-    <string name="sportsnews">Sports News</string>
-    <string name="Highlights">Highlights</string>
+
+
+
 
 
 </resources>
