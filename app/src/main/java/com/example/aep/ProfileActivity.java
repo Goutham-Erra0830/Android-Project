@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import androidx.appcompat.app.AlertDialog;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -30,6 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
     private String fullName;
     private String userid;
     private Button btnlogout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,16 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed(); // Simulate back navigation
+            }
+        });
+
+        ImageView imageViewhelp = findViewById(R.id.profilehelp);
+
+        imageViewhelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                showHelpDialog(); // Simulate back navigation
             }
         });
 
@@ -198,5 +210,18 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void showHelpDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Help Menu");
+        builder.setMessage("Author:Group 12\nVersion: version 1.0\nInstructions:1.If you're a new user, sign up for an account using your email \n 2.If you're an existing user, log in using your registered credentials\n" +
+                "3./*Navigate through different subjects or categories by swiping or tapping on the respective options.*/");
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            // Perform any action on OK click if needed
+            dialog.dismiss();
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
