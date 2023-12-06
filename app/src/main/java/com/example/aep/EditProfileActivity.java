@@ -49,7 +49,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 saveProfileData();
                 //Intent intent = new Intent(EditProfileActivity.this, PlayerActivity.class);
                 //startActivity(intent);
-                finish();
+                //finish();
+                onBackPressed();
             }
         });
 
@@ -86,7 +87,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             Toast.makeText(EditProfileActivity.this, "Profile data saved successfully", Toast.LENGTH_SHORT).show();
 
                             // Start ProfileActivity after saving data
-                            startPlayerActivity();
+                            //startPlayerActivity();
                         } else {
                             Toast.makeText(EditProfileActivity.this, "Error saving profile data", Toast.LENGTH_SHORT).show();
                         }
