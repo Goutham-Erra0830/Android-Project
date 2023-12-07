@@ -81,7 +81,7 @@
         <activity
             android:name=".Student"
             android:exported="true"
-            android:label="@string/title_activity_student"
+            android:label="title_activity_student"
             android:theme="@style/Theme.AEP.NoActionBar" />
         <activity
             android:name=".Build_Team"
@@ -95,7 +95,7 @@
         <activity
             android:name=".Coach"
             android:exported="true"
-            android:label="@string/title_activity_coach"
+            android:label="title_activity_coach"
             android:theme="@style/Theme.AEP.NoActionBar" />
         <activity
             android:name=".RegisterActivity"

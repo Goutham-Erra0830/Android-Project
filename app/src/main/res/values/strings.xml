@@ -1,4 +1,82 @@
 <resources>
+    <string name="hello">Hello,</string>
+    <string name="Rating">Rating</string>
+    <string name="matches">matches</string>
+    <string name="Strikerate">Strike Rate</string>
+    <string name="discover">Discover</string>
+    <string name="bmicalculator">BMI Calculator</string>
+    <string name="Playerinsights">Player Insights</string>
+    <string name="gpt">GPT</string>
+    <string name="sportsnews">Sports News</string>
+    <string name="editprofile"> Edit Profile</string>
+    <string name="highlights">Highlights</string>
+    <string name="events">Events</string>
+    <string name="pastevents">Past Events</string>
+    <string name="presentevents">Present Events</string>
+    <string name="upcomingevents">Upcoming Events</string>
+    <string name="profile">Profile</string>
+    <string name="edit">Edit</string>
+    <string name="logout">Logout</string>
+    <string name="userinfo">User Info</string>
+    <string name="profilecontact">Contact</string>
+    <string name="bmi">BMI</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="calculatebmi">CALCULATE BMI</string>
+    <string name="enterweightinkg">Enter Weight (in Kg)</string>
+    <string name="enterheightinmeters">Enter Height (in meters)</string>
+    <string name="enteryourquery">Enter your query</string>
+    <string name="send">Send</string>
+    <string name="register">Register</string>
+    <string name="fullname">Full Name</string>
+    <string name="email">Email</string>
+    <string name="enteremail">Enter Email</string>
+    <string name="password">Password</string>
+    <string name="enterpassword">Enter Password</string>
+    <string name="usertype">User Type</string>
+    <string name="login">Login</string>
+    <string name="signup">SIGN_UP</string>
+
+
+    <string name="app_name" translatable="false">AEP</string>
+
+    <string name="passwordempty" translatable="false">Password cannot be empty.</string>
+    <string name="Invalidemail" translatable="false">Invalid email address.</string>
+    <string name="userid" translatable="false">UserId</string>
+    <string name="enter_employeeid" translatable="false">Enter EmployeeId</string>
+    <string name="enter_password" translatable="false">Enter Password</string>
+    <string name="enter_email" translatable="false">Enter Email</string>
+
+    <string name="full_name" translatable="false">Full name</string>
+    <string name="first_name" translatable="false">Full Name</string>
+    <string name="profile_type" translatable="false">User Type</string>
+    <string name="title_activity_coach" translatable="false">Coach</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Name</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings" translatable="false">Settings</string>
+
+    <string name="menu_home" translatable="false">Home</string>
+    <string name="menu_support" translatable="false">Support</string>
+    <string name="menu_Gallery" translatable="false">Gallery</string>
+    <string name="menu_Slideshow" translatable="false">Slideshow</string>
+    <string name="menu_Help" translatable="false">Help</string>
+    <string name="title_activity_coach_home" translatable="false">coach_home</string>
+    <string name="tab_text_1" translatable="false">Tab 1</string>
+    <string name="tab_text_2" translatable="false">Tab 2</string>
+    <string name="title_activity_student" translatable="false">Student</string>
+    <string name="menu_gallery" translatable="false">Gallery</string>
+    <string name="menu_slideshow" translatable="false">Slideshow</string>
+
+    <string name="Matchesplayed" translatable="false">Matches Played</string>
+    <string name="Playerevaluation" translatable="false">Player Evaluation</string>
+    <string name="Playergrowth" translatable="false">Player Growth</string>
+    <string name="Eventplanning" translatable="false">Event Planning</string>
+    <string name="Teambuilding" translatable="false">Team Building</string>
+
+    <string name="Highlights" translatable="false">Highlights</string>
 
 
 

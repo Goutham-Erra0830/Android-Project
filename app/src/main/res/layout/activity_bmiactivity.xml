@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/space"
             android:gravity="center"
-            android:text="BMI "
+            android:text="@string/bmi"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold" />
@@ -98,7 +98,7 @@
                 android:id="@+id/editTextWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Weight (in kg)"
+                android:hint="@string/enterweightinkg"
                 android:inputType="numberDecimal" />
 
             <EditText
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/editTextWeight"
                 android:layout_marginTop="16dp"
-                android:hint="Enter Height (in meters)"
+                android:hint="@string/enterheightinmeters"
                 android:inputType="numberDecimal" />
 
             <RadioGroup
@@ -121,13 +121,13 @@
                     android:id="@+id/radioButtonMale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Male" />
+                    android:text="@string/male" />
 
                 <RadioButton
                     android:id="@+id/radioButtonFemale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Female" />
+                    android:text="@string/female" />
             </RadioGroup>
 
             <Button
@@ -136,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/radioGroupGender"
                 android:layout_marginTop="16dp"
-                android:text="Calculate BMI" />
+                android:text="@string/calculatebmi" />
 
             <TextView
                 android:id="@+id/textViewResult"
