@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profile"
+            android:text="@string/profile"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -157,7 +157,7 @@
                     android:fontFamily="@font/proximanovaregular"
                     android:gravity="center"
                     android:padding="13dp"
-                    android:text="User Info"
+                    android:text="@string/userinfo"
                     android:textAllCaps="true"
                     android:textColor="@color/blue"
                     android:textSize="14sp"
@@ -188,7 +188,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Contact"
+                            android:text="@string/profilecontact"
                             android:textSize="17sp"
                             android:fontFamily="@font/proximanovaregular"
                             android:textStyle="bold"
@@ -203,7 +203,7 @@
                             android:id="@+id/btnEdit1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Edit"
+                            android:text="@string/edit"
                             android:textColor="@color/goodgrey"
                             android:layout_marginEnd="10dp"
                             android:textSize="14sp" />
@@ -382,7 +382,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="20dp"
-                                android:text="Logout"
+                                android:text="@string/logout"
                                 android:textSize="15sp"
                                 android:textColor="@color/goodgrey"
                                 android:fontFamily="@font/proximanovaregular" />

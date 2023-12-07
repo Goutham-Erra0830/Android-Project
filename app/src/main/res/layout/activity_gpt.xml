@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GPT"
+            android:text="@string/gpt"
             android:textColor="@color/blue"
             android:textSize="40sp"
             android:textStyle="bold" />
@@ -65,7 +65,7 @@
             android:id="@+id/editQuery"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Enter your query"
+            android:hint="@string/enteryourquery"
             android:background="@drawable/noncircular_grey_bordersolid"
             />
 
@@ -75,7 +75,7 @@
             android:layout_height="match_parent"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:text="Send"
+            android:text="@string/send"
             />
 
     </LinearLayout>
