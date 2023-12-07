@@ -1,6 +1,15 @@
 <resources>
 
-
+    <string name="teamBuilding">Team Building</string>
+    <string name="playerEvaluation">Player Evaluation</string>
+    <string name="playerGrowth">Player Growth</string>
+    <string name="planEvents">Plan Events</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="selectTeamA">Select players for Team A</string>
+    <string name="done">Done</string>
+    <string name="welcome">Welcome</string>
+    <string name="scheduleEvent">Schedule Event</string>
 
 
 

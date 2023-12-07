@@ -35,7 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Plan Events"
+            android:text="@string/planEvents"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -115,7 +115,7 @@
             android:id="@+id/scheduleButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Schedule Event"
+            android:text="@string/scheduleEvent"
             android:background="@drawable/circular_grey_bordersolid"
             android:textColor="#000000"
             android:textStyle="bold"

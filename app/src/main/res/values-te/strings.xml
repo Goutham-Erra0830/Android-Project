@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="teamBuilding">జట్టు నిర్మాణం</string>
+    <string name="playerEvaluation">ప్లేయర్ మూల్యాంకనం</string>
+    <string name="playerGrowth">ప్లేయర్ గ్రోత్</string>
+    <string name="planEvents">ఈవెంట్‌లను ప్లాన్ చేయండి</string>
+    <string name="editProfile">ప్రొఫైల్‌ని సవరించండి</string>
+    <string name="save">సేవ్ చేయండి</string>
+    <string name="selectTeamA">టీమ్ A కోసం ఆటగాళ్లను ఎంచుకోండి</string>
+    <string name="done">పూర్తి</string>
+    <string name="welcome">స్వాగతం</string>
+    <string name="scheduleEvent">షెడ్యూల్ ఈవెంట్</string>
+</resources>
