@@ -216,7 +216,7 @@ public class ProfileActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Help Menu");
         builder.setMessage("Author:Group 12\nVersion: version 1.0\nInstructions:1.If you're a new user, sign up for an account using your email \n 2.If you're an existing user, log in using your registered credentials\n" +
-                "3./*Navigate through different subjects or categories by swiping or tapping on the respective options.*/");
+                "3.You can login as either Coach or Player and test functionalities");
         builder.setPositiveButton("OK", (dialog, which) -> {
             // Perform any action on OK click if needed
             dialog.dismiss();
